@@ -17,7 +17,7 @@ def calcValue(x, y):
 bomb_loc = []
 
 env = clips.Environment()
-# env.load('minesweeper.clp')
+env.load('minesweeper.clp')
 
 b_size = int(input("Masukkan ukuran board: "))
 new_fact = "(b_size " + str(b_size) + ")"
@@ -83,7 +83,6 @@ for i in range(b_size):
 
 init_fact = "(user 0 0 0)"
 fact = env.assert_string(init_fact)
-
 
 # print_board = """
 #  (defrule print-board
