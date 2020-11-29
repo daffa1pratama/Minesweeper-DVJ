@@ -99,6 +99,48 @@
 	(assert (user (- ?x 1) (- ?y 1) ?val8))
 )
 
+(defrule explore-2
+	(user 0 0 0)
+	(tile 1 0 ?val1)
+	(tile 1 1 ?val2)
+	(tile 0 1 ?val3)
+	=>
+	(assert (user 1 0 ?val1))
+	(assert (user 1 1 ?val2))
+	(assert (user 0 1 ?val3))
+)
+
+(defrule explore-3
+	(b_size ?size)
+	(user ?corner 0 0)
+	(test (= ?corner (- ?size 1)))
+	(tile ?z1 0 ?val1)
+	(tile ?z1 1 ?val2)
+	(tile ?corner 1 ?val3)
+	(test (= ?z1 (- ?corner 1)))
+	=>
+	(assert (user ?z1 0 ?val1))
+	(assert (user ?z1 1 ?val2))
+	(assert (user ?corner 1 ?val3))
+)
+
+(defrule explore-4
+	(b_size ?size)
+	(user ?corner ?corner 0)
+	(test (= ?corner (- ?size 1)))
+	(tile ?z1 ?corner ?val1)
+	(tile ?z1 ?z1 ?val2)
+	(tile ?corner ?z1 ?val3)
+	(test (= ?z1 (- ?corner 1)))
+	=>
+	(assert (user ?z1 ?corner ?val1))
+	(assert (user ?z1 ?z1 ?val2))
+	(assert (user ?corner ?z1 ?val3))
+
+
+)
+
+
 (defrule explore-5
 	(b_size ?size)
 	(user ?x ?y 0)
@@ -117,6 +159,7 @@
 	(assert (user ?x (- ?y 1) ?val4))
 	(assert (user (+ ?x 1) (- ?y 1) ?val6))
 )
+
 
 (defrule explore-6
 	(b_size ?size)
