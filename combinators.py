@@ -53,6 +53,7 @@ listOfTiles = [tiles1, tiles2, tiles3, tiles4, tiles5, tiles6, tiles7, tiles8]
 listOfAssert = [assertTile1, assertTile2, assertTile3, assertTile4, assertTile5, assertTile6, assertTile7, assertTile8]
 listOfFlag = [flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8]
 listOfNum = [0,1,2,3,4,5,6,7]
+listOfNumKanan = [1,2,3,4,5]
 
 #n = int(input("Masukkan n: "))
 f = open("file-rule-1.txt", "w")
@@ -67,9 +68,9 @@ for n in range(1,5):
             #flag combinations
             idz = 1
             if(idx==0):
-                isi = "(defrule rule-1-val" + str(n) +"-" + str(ids) + "-flag" + str(idx) +"-" + str(idz) +" \n   "
+                isi = "(defrule rule-1-val" + str(n) +"-" + str(ids) + "-flag" + str(idx) +"-" + str(idz) + "-right" + " \n   "
                 isi += "(user ?x ?y " + str(n) +")" +" \n   "
-                isi += "(lokasi1 ?x ?y)" +" \n   "
+                isi += "(lokasi7 ?x ?y)" +" \n   "
                 for j in range (8):
                     if j not in i:
                         isi += listOfTile[j]
@@ -88,9 +89,9 @@ for n in range(1,5):
             else:
                 comb2 = combinations(i, idx)
                 for v in list(comb2):
-                    isi = "(defrule rule-1-val" + str(n) +"-" + str(ids) + "-flag" + str(idx) +"-" + str(idz) +" \n   "
+                    isi = "(defrule rule-1-val" + str(n) +"-" + str(ids) + "-flag" + str(idx) +"-" + str(idz) + "-right" +" \n   "
                     isi += "(user ?x ?y " + str(n) +")" +" \n   "
-                    isi += "(lokasi1 ?x ?y)" +" \n   "
+                    isi += "(lokasi7 ?x ?y)" +" \n   "
                     for j in range(len(v)):
                         isi += listOfFlag[v[j]]
                     for j in range (8):
