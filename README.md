@@ -12,7 +12,7 @@ Minesweeper merupakan permainan untuk memprediksi lokasi bomb yang ada dibalik k
 4. CLIPS Rule Based Programming Language (opsional)
 
 ### Menjalankan aplikasi
-1. Download aplikasi Minesweeper ini dari laman Github [a link](https://github.com/daffa1pratama/Minesweeper-DVJ)
+1. Download aplikasi Minesweeper ini dari laman Github [berikut](https://github.com/daffa1pratama/Minesweeper-DVJ)
 2. Buka folder aplikasi Minesweeper tersebut
 3. Buka terminal dengan direktori folder aplikasi Minesweeper
 4. Jalankan perintah `python minesweeper.py` untuk menjalankan permainan
