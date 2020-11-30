@@ -63454,13 +63454,14 @@
 	(b_size ?size)
 	(user ?corn 0 3)
 	(user ?corn 1 ?vg)
-    (tile (- ?corn 1) 1 ?vh)
-    (tile (- ?corn 1) 0 ?vi)
+    (tile ?corn2 1 ?vh)
+    (tile ?corn2 0 ?vi)
+	(test ( = ?corn2 (- ?corn 1)))
 	(test (= ?corn (- ?size 1)))
 	; (test (= ?z1 (- ?corn 1)))
 	=>
-	(assert (user (- ?corn 1) 1 ?vh))
-	(assert (user (- ?corn 1) 0 ?vi))
+	(assert (user ?corn2 1 ?vh))
+	(assert (user ?corn2 0 ?vi))
 )
 
 (defrule rule-2-val3-upright-corner-7
@@ -63678,12 +63679,13 @@
 	(user 1 ?corn)
 	(b_size ?size)
 	(test (= ?corn (- ?size 1)))
-    (tile 1 (- ?corn 1) ?v)
-    (tile 0 (- ?corn 1) ?va)
+    (tile 1 ?corn2 ?v)
+    (tile 0 ?corn2 ?va)
+	(test (= ?corn2 (- ?corn 1)))
 	; (test (= ?z1 (- ?corn 1)))
 	=>
-	(assert (user 1 (- ?corn 1) ?v))
-	(assert (user 0 (- ?corn 1) ?va))
+	(assert (user 1 ?corn2 ?v))
+	(assert (user 0 ?corn2 ?va))
 )
 
 (defrule rule-2-val3-downleft-corner-5
@@ -63870,7 +63872,7 @@
 	(test (= ?z1 (- ?corn 1)))
 	=>
 	(assert (user ?z1 ?z1 ?v1))
-	(assert (user ?z1 ?corn ?v2))
+	(assert (user ?z1 ?corn ?v3))
 )
 
 (defrule rule-2-val2-downright-corner-9
@@ -63953,12 +63955,12 @@
 	(user ?corn ?corn 3)
 	(user ?corn ?z1)
 	(test (= ?corn (- ?size 1)))
-    (tile (- ?corn 1) ?z1 ?v)
-    (tile (- ?corn 1) ?corn ?vv)
-	; (test (= ?z1 (- ?corn 1)))
+    (tile ?corn2 ?z1 ?v)
+    (tile ?corn2 ?corn ?vv)
+	(test (= ?corn2 (- ?corn 1)))
 	=>
-	(assert (user (- ?corn 1) ?z1 ?v))
-	(assert (user (- ?corn 1) ?corn ?vv))
+	(assert (user ?corn2 ?z1 ?v))
+	(assert (user ?corn2 ?corn ?vv))
 )
 
 (defrule rule-2-val3-downright-corner-7
@@ -64088,7 +64090,7 @@
 	(test (= ?z2 (+ ?y 1)))
 	=>
 	(assert (user 0 ?z1 ?v1))
-	(assert (user 1 ?z2 ?v2))
+	(assert (user 1 ?z2 ?v4))
 )
 
 (defrule rule-2-val2-leftside-4
