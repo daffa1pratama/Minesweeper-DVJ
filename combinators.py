@@ -70,7 +70,7 @@ for n in range(1,5):
                 isi = "(defrule rule-1-val" + str(n) +"-" + str(ids) + "-flag" + str(idx) +"-" + str(idz) + "-bottom" +" \n   "
                 isi += "(user ?x ?y " + str(n) +")" +" \n   "
                 isi += "(lokasi8 ?x ?y)" +" \n   "
-                for j in range (8):
+                for j in listOfNum:
                     if j not in i:
                         isi += listOfTile[j]
                 for j in range(len(i)):
@@ -78,7 +78,6 @@ for n in range(1,5):
                 isi += "(test (= ?z1 (+ ?x 1)))" +" \n   "
                 isi += "(test (= ?z3 (- ?x 1)))" +" \n   "
                 isi += "(test (= ?z2 (+ ?y 1)))" +" \n   "
-                isi += "(test (= ?z4 (- ?y 1)))" +" \n   "
                 isi += "=> \n   "
                 for j in range(len(i)):
                     isi += listOfAssert[i[j]]
@@ -93,7 +92,7 @@ for n in range(1,5):
                     isi += "(lokasi8 ?x ?y)" +" \n   "
                     for j in range(len(v)):
                         isi += listOfFlag[v[j]]
-                    for j in range (8):
+                    for j in listOfNum:
                         if j not in i:
                             isi += listOfTile[j]
                     for j in range(len(i)):
@@ -102,7 +101,6 @@ for n in range(1,5):
                     isi += "(test (= ?z1 (+ ?x 1)))" +" \n   "
                     isi += "(test (= ?z3 (- ?x 1)))" +" \n   "
                     isi += "(test (= ?z2 (+ ?y 1)))" +" \n   "
-                    isi += "(test (= ?z4 (- ?y 1)))" +" \n   "
                     isi += "=> \n   "
                     for j in range(len(i)):
                         if i[j] not in v:
