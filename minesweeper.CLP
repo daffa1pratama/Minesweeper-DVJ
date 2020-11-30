@@ -32362,7 +32362,7 @@
 
 (defrule rule-1-val1-upside-1
 	(user ?x 0 1)
-	(lokasi6 0 ?y)
+	(lokasi6 ?x 0)
 	(unknown ?z1 0 ?v1)
 	(user ?z1 1 ?v2)
 	(user ?x 1 ?v3)
@@ -32376,7 +32376,7 @@
 
 (defrule rule-1-val1-upside-2
 	(user ?x 0 1)
-	(lokasi6 0 ?y)
+	(lokasi6 ?x 0)
 	(user ?z1 0 ?v1)
 	(unknown ?z1 1 ?v2)
 	(user ?x 1 ?v3)
@@ -32388,6 +32388,443 @@
 	(assert(flag ?z1 1))
 )
 
+(defrule rule-1-val1-upside-3
+	(user ?x 0 1)
+	(lokasi6 ?x 0)
+	(user ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?x 1))
+)
+
+(defrule rule-1-val1-upside-4
+	(user ?x 0 1)
+	(lokasi6 ?x 0)
+	(user ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z2 1))
+)
+
+(defrule rule-1-val1-upside-5
+	(user ?x 0 1)
+	(lokasi6 ?x 0)
+	(user ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z2 0))
+)
+
+(defrule rule-1-val2-upside-1
+	(user ?x 0 2)
+	(lokasi6?x 0)
+	(unknown ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?z1 1))
+)
+
+
+(defrule rule-1-val2-upside-2
+	(user ?x 0 2)
+	(lokasi6 ?x 0)
+	(unknown ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?x 1))
+)
+
+(defrule rule-1-val2-upside-3
+	(user ?x 0 2)
+	(lokasi6 ?x 0)
+	(unknown ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?z2 1))
+)
+
+(defrule rule-1-val2-upside-4
+	(user ?x 0 2)
+	(lokasi6?x 0)
+	(unknown ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?z2 0))
+)
+
+(defrule rule-1-val2-upside-5
+	(user ?x 0 2)
+	(lokasi6 ?x 0)
+	(user ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 1))
+   (assert(flag ?x 1))
+)
+
+(defrule rule-1-val2-upside-6
+	(user ?x 0 2)
+	(lokasi6?x 0)
+	(user ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 1))
+   (assert(flag ?z2 1))
+)
+
+(defrule rule-1-val2-upside-7
+	(user ?x 0 2)
+	(lokasi6 ?x 0)
+	(user ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 1))
+   (assert(flag ?z2 0))
+)
+
+(defrule rule-1-val2-upside-8
+	(user ?x 0 2)
+	(lokasi6 ?x 0)
+	(user ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?x 1))
+   (assert(flag ?z2 1))
+)
+
+(defrule rule-1-val2-upside-9
+	(user ?x 0 2)
+	(lokasi6 ?x 0)
+	(user ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?x 1))
+   (assert(flag ?z2 0))
+)
+
+(defrule rule-1-val2-upside-10
+	(user ?x 0 2)
+	(lokasi6 ?x 0)
+	(user ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z2 1))
+   (assert(flag ?z2 0))
+)
+
+(defrule rule-1-val3-upside-1
+	(user ?x 0 3)
+	(lokasi6 ?x 0)
+	(unknown ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?z1 1))
+   (assert(flag ?x 1))
+)
+
+(defrule rule-1-val3-upside-2
+	(user ?x 0 3)
+	(lokasi6 ?x 0)
+	(unknown ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?z1 1))
+   (assert(flag ?z2 1))
+)
+
+(defrule rule-1-val3-upside-3
+	(user ?x 0 3)
+	(lokasi6 ?x 0)
+	(unknown ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?z1 1))
+   (assert(flag ?z2 0))
+)
+
+(defrule rule-1-val3-upside-4
+	(user ?x 0 3)
+	(lokasi6 ?x 0)
+	(unknown ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?x 1))
+   (assert(flag ?z2 1))
+)
+
+(defrule rule-1-val3-upside-5
+	(user ?x 0 3)
+	(lokasi6 ?x 0)
+	(unknown ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?x 1))
+   (assert(flag ?z2 0))
+)
+
+(defrule rule-1-val3-upside-6
+	(user ?x 0 3)
+	(lokasi6 ?x 0)
+	(unknown ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?z2 1))
+   (assert(flag ?z2 0))
+)
+
+(defrule rule-1-val3-upside-7
+	(user ?x 0 3)
+	(lokasi6 ?x 0)
+	(user ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 1))
+   (assert(flag ?x 1))
+   (assert(flag ?z2 1))
+)
+
+(defrule rule-1-val3-upside-8
+	(user ?x 0 3)
+	(lokasi6 ?x 0)
+	(user ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 1))
+   (assert(flag ?x 1))
+   (assert(flag ?z2 0))
+)
+
+(defrule rule-1-val3-upside-9
+	(user ?x 0 3)
+	(lokasi6 ?x 0)
+	(user ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 1))
+   (assert(flag ?z2 1))
+   (assert(flag ?z2 0))
+)
+
+(defrule rule-1-val3-upside-10
+	(user ?x 0 3)
+	(lokasi6 ?x 0)
+	(user ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?x 1))
+   (assert(flag ?z2 1))
+   (assert(flag ?z2 0))
+)
+
+(defrule rule-1-val4-upside-1
+	(user ?x 0 4)
+	(lokasi6 ?x 0)
+	(unknown ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?z1 1))
+   (assert(flag ?x 1))
+   (assert(flag ?z2 1))
+)
+
+(defrule rule-1-val4-upside-2
+	(user ?x 0 4)
+	(lokasi6 ?x 0)
+	(unknown ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?z1 1))
+   (assert(flag ?x 1))
+   (assert(flag ?z2 0))
+)
+
+(defrule rule-1-val4-upside-3
+	(user ?x 0 4)
+	(lokasi6 ?x 0)
+	(unknown ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?z1 1))
+   (assert(flag ?z2 1))
+   (assert(flag ?z2 0))
+)
+
+(defrule rule-1-val4-upside-4
+	(user ?x 0 4)
+	(lokasi6 ?x 0)
+	(unknown ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+   (assert(flag ?x 1))
+   (assert(flag ?z2 1))
+   (assert(flag ?z2 0))
+)
+
+(defrule rule-1-val4-upside-5
+	(user ?x 0 4)
+	(lokasi6 ?x 0)
+	(user ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(unknown ?x 1 ?v3)
+	(unknown ?z2 1 ?v4)
+	(unknown ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 1))
+   (assert(flag ?x 1))
+   (assert(flag ?z2 1))
+   (assert(flag ?z2 0))
+)
 ; ===== BATAS RULE 2 =====
 
 (defrule rule-2-val1-1-flag0-1 
