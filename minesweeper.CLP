@@ -131358,6 +131358,491 @@
    (assert (flag ?z1 ?z2)) 
    ) 
 
+(defrule rule-1-val1-upleft-corner-1
+	(user 0 0 1)
+	(tile 1 1 ?val1)
+	(tile 1 0 ?val2)
+	(user 1 1 ?val1)
+	(user 1 0 ?val2)
+	=>
+	(assert(flag 0 1))
+)
+
+(defrule rule-1-val1-upleft-corner-2
+	(user 0 0 1)
+	(tile 0 1 ?val1)
+	(tile 1 0 ?val2)
+	(user 0 1 ?val1)
+	(user 1 0 ?val2)
+	=>
+	(assert(flag 1 1))
+)
+
+(defrule rule-1-val1-upleft-corner-3
+	(user 0 0 1)
+	(tile 0 1 ?val1)
+	(tile 1 1 ?val2)
+	(user 0 1 ?val1)
+	(user 1 1 ?val2)
+	=>
+	(assert(flag 1 0))
+)
+
+(defrule rule-1-val2-upleft-corner-1
+	(user 0 0 2)
+	(flag 0 1)
+	(tile 1 0 ?val1)
+	(user 1 0 ?val1)
+	=>
+	(assert(flag 1 1))
+)
+
+(defrule rule-1-val2-upleft-corner-2
+	(user 0 0 2)
+	(flag 0 1)
+	(tile 1 1 ?val1)
+	(user 1 1 ?val1)
+	=>
+	(assert(flag 1 0))
+)
+
+(defrule rule-1-val2-upleft-corner-3
+	(user 0 0 2)
+	(flag 1 0)
+	(tile 1 1 ?val1)
+	(user 1 1 ?val1)
+	=>
+	(assert(flag 0 1))
+)
+
+(defrule rule-1-val2-upleft-corner-4
+	(user 0 0 2)
+	(flag 1 0)
+	(tile 0 1 ?val1)
+	(user 0 1 ?val1)
+	=>
+	(assert(flag 1 1))
+)
+
+(defrule rule-1-val2-upleft-corner-5
+	(user 0 0 2)
+	(flag 1 1)
+	(tile 0 1 ?val1)
+	(user 0 1 ?val1)
+	=>
+	(assert(flag 1 0))
+)
+
+(defrule rule-1-val2-upleft-corner-6
+	(user 0 0 2)
+	(flag 1 1)
+	(tile 1 0 ?val1)
+	(user 1 0 ?val1)
+	=>
+	(assert(flag 0 1))
+)
+
+(defrule rule-1-val3-upleft-corner-1
+	(user 0 0 3)
+	(flag 1 1)
+	(flag 0 1)
+	=>
+	(assert(flag 1 0))
+)
+
+(defrule rule-1-val3-upleft-corner-2
+	(user 0 0 3)
+	(flag 1 1)
+	(flag 1 0)
+	=>
+	(assert(flag 0 1))
+)
+
+(defrule rule-1-val3-upleft-corner-3
+	(user 0 0 3)
+	(flag 1 0)
+	(flag 0 1)
+	=>
+	(assert(flag 1 1))
+)
+
+(defrule rule-1-val3-upleft-corner-4
+	(user 0 0 3)
+	(flag 1 0)
+	=>
+	(assert(flag 1 1))
+	(assert(flag 0 1))
+)
+
+(defrule rule-1-val3-upleft-corner-5
+	(user 0 0 3)
+	(flag 1 1)
+	=>
+	(assert(flag 0 1))
+	(assert(flag 1 0))
+)
+
+(defrule rule-1-val3-upleft-corner-6
+	(user 0 0 3)
+	(flag 0 1)
+	=>
+	(assert(flag 1 1))
+	(assert(flag 1 0))
+)
+
+(defrule rule-1-val1-upright-corner-1
+	(b_size ?size)
+	(user ?corn 0 1)
+	(tile ?z1 1 ?val1)
+	(tile ?z1 0 ?val2)
+	(user ?z1 1 ?val1)
+	(user ?z1 0 ?val2)
+	(test (= ?z1 (- ?corn 1)))
+	(test (= ?corn (- ?size 1)))
+	=>
+	(assert(flag ?corn 1))
+)
+
+(defrule rule-1-val1-upright-corner-2
+	(b_size ?size)
+	(user ?corn 0 1)
+	(tile ?corn 1 ?val1)
+	(tile ?z1 0 ?val2)
+	(user ?corn 1 ?val1)
+	(user ?z1 0 ?val2)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 1))
+)
+
+(defrule rule-1-val1-upright-corner-3
+	(b_size ?size)
+	(user ?corn 0 1)
+	(tile ?corn 1 ?val1)
+	(tile ?z1 1 ?val2)
+	(user ?corn 1 ?val1)
+	(user ?z1 1 ?val2)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 0))
+)
+
+(defrule rule-1-val2-upright-corner-1
+	(b_size ?size)
+	(user ?corn 0 2)
+	(flag ?corn 1)
+	(tile ?z1 0 ?val1)
+	(user ?z1 0 ?val1)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 1))
+)
+
+(defrule rule-1-val2-upright-corner-2
+	(b_size ?size)
+	(user ?corn 0 2)
+	(flag ?corn 1)
+	(tile ?z1 1 ?val1)
+	(user ?z1 1 ?val1)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 0))
+)
+
+(defrule rule-1-val2-upright-corner-3
+	(b_size ?size)
+	(user ?corn 0 2)
+	(flag ?z1 0)
+	(tile ?z1 1 ?val1)
+	(user ?z1 1 ?val1)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?corn 1))
+)
+
+(defrule rule-1-val2-upright-corner-4
+	(b_size ?size)
+	(user ?corn 0 2)
+	(flag ?z1 0)
+	(tile ?corn 1 ?val1)
+	(user ?corn 1 ?val1)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 1))
+)
+
+(defrule rule-1-val2-upright-corner-5
+	(b_size ?size)
+	(user ?corn 0 2)
+	(flag ?z1 1)
+	(tile ?corn 1 ?val1)
+	(user ?corn 1 ?val1)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 0))
+)
+
+(defrule rule-1-val2-upright-corner-6
+	(b_size ?size)
+	(user ?corn 0 2)
+	(flag ?z1 1)
+	(tile ?z1 0 ?val1)
+	(user ?z1 0 ?val1)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?corn 1))
+)
+
+(defrule rule-1-val3-upright-corner-1
+	(b_size ?size)
+	(user ?corn 0 3)
+	(flag ?z1 1)
+	(flag ?corn 1)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 0))
+)
+
+(defrule rule-1-val3-upright-corner-2
+	(b_size ?size)
+	(user ?corn 0 3)
+	(flag ?z1 1)
+	(flag ?z1 0)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?corn 1))
+)
+
+(defrule rule-1-val3-upright-corner-3
+	(b_size ?size)
+	(user ?corn 0 3)
+	(flag ?z1 0)
+	(flag ?corn 1)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 1))
+)
+
+(defrule rule-1-val3-upright-corner-4
+	(b_size ?size)
+	(user ?corn 0 3)
+	(flag ?z1 0)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 1))
+	(assert(flag ?corn 1))
+)
+
+(defrule rule-1-val3-upright-corner-5
+	(b_size ?size)
+	(user ?corn 0 3)
+	(flag ?z1 1)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?corn 1))
+	(assert(flag ?z1 0))
+)
+
+(defrule rule-1-val3-upright-corner-6
+	(b_size ?size)
+	(user ?corn 0 3)
+	(flag ?corn 1)
+	(test (= ?corn (- ?size 1)))
+	; (test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag (- ?corn 1) 1))
+	(assert(flag (- ?corn 1) 0))
+)
+
+(defrule rule-1-val1-downleft-corner-1
+	(b_size ?size)
+	(user 0 ?corn 1)
+	(tile 1 ?z1 ?val1)
+	(tile 1 ?corn ?val2)
+	(user 1 ?z1 ?val1)
+	(user 1 ?corn ?val2)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 0 ?z1))
+)
+
+(defrule rule-1-val1-downleft-corner-2
+	(b_size ?size)
+	(user 0 ?corn 1)
+	(tile 0 ?z1 ?val1)
+	(tile 1 ?corn ?val2)
+	(user 0 ?z1 ?val1)
+	(user 1 ?corn ?val2)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 1 ?z1))
+)
+
+(defrule rule-1-val1-downleft-corner-3
+	(user 0 ?corn 1)
+	(tile 0 ?z1 ?val1)
+	(tile 1 ?z1 ?val2)
+	(user 0 ?z1 ?val1)
+	(user 1 ?z1 ?val2)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 1 ?corn))
+)
+
+(defrule rule-1-val2-downleft-corner-1
+	(user 0 ?corn 2)
+	(flag 0 ?z1)
+	(tile 1 ?corn ?val1)
+	(user 1 ?corn ?val1)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 1 ?z1))
+)
+
+(defrule rule-1-val2-downleft-corner-2
+	(user 0 ?corn 2)
+	(flag 0 ?z1)
+	(tile 1 ?z1 ?val1)
+	(user 1 ?z1 ?val1)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 1 ?corn))
+)
+
+(defrule rule-1-val2-downleft-corner-3
+	(user 0 ?corn 2)
+	(flag 1 ?corn)
+	(tile 1 ?z1 ?val1)
+	(user 1 ?z1 ?val1)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 0 ?z1))
+)
+
+(defrule rule-1-val2-downleft-corner-4
+	(user 0 ?corn 2)
+	(flag 1 ?corn)
+	(tile 0 ?z1 ?val1)
+	(user 0 ?z1 ?val1)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 1 ?z1))
+)
+
+(defrule rule-1-val2-downleft-corner-5
+	(user 0 ?corn 2)
+	(flag 1 ?z1)
+	(tile 0 ?z1 ?val1)
+	(user 0 ?z1 ?val1)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 1 ?corn))
+)
+
+(defrule rule-1-val2-downleft-corner-6
+	(user 0 ?corn 2)
+	(flag 1 ?z1)
+	(tile 1 ?corn ?val1)
+	(user 1 ?corn ?val1)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 0 1))
+)
+
+(defrule rule-1-val3-downleft-corner-1
+	(user 0 ?corn 3)
+	(flag 1 ?z1)
+	(flag 0 ?z1)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 1 ?corn))
+)
+
+(defrule rule-1-val3-downleft-corner-2
+	(user 0 ?corn 3)
+	(flag 1 ?z1)
+	(flag 1 ?corn)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 0 ?z1))
+)
+
+(defrule rule-1-val3-downleft-corner-3
+	(user 0 ?corn 3)
+	(flag 1 ?corn)
+	(flag 0 ?z1)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 1 ?z1))
+)
+
+(defrule rule-1-val3-downleft-corner-4
+	(user 0 ?corn 3)
+	(flag 1 ?corn)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	; (test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 1 (- ?corn 1)))
+	(assert(flag 0 (- ?corn 1)))
+)
+
+(defrule rule-1-val3-downleft-corner-5
+	(user 0 ?corn 3)
+	(flag 1 ?z1)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 0 ?z1))
+	(assert(flag 1 ?corn))
+)
+
+(defrule rule-1-val3-downleft-corner-6
+	(user 0 ?corn 3)
+	(flag 0 ?z1)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 1 ?z1))
+	(assert(flag 1 ?corn))
+)
 ; ===== BATAS RULE 2 =====
 
 (defrule rule2-val1-1 
