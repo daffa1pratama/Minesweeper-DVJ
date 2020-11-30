@@ -28034,6 +28034,36 @@
 	(assert(flag 0 1))
 )
 
+(defrule rule-1-val2-upleft-corner-7
+	(user 0 0 2)
+	(unknown 1 0 ?v1)
+	(unknown 0 1 ?v2)
+	(user 1 1 ?val)
+	=>
+	(assert(flag 1 0))
+	(assert(flag 0 1))
+)
+
+(defrule rule-1-val2-upleft-corner-8
+	(user 0 0 2)
+	(unknown 1 0 ?v1)
+	(unknown 1 1 ?v2)
+	(user 0 1 ?val)
+	=>
+	(assert(flag 1 0))
+	(assert(flag 1 1))
+)
+
+(defrule rule-1-val2-upleft-corner-9
+	(user 0 0 2)
+	(unknown 1 1 ?v1)
+	(unknown 0 1 ?v2)
+	(user 1 0 ?val)
+	=>
+	(assert(flag 1 1))
+	(assert(flag 0 1))
+)
+
 (defrule rule-1-val3-upleft-corner-1
 	(user 0 0 3)
 	(flag 1 1)
@@ -28081,6 +28111,18 @@
 	(assert(flag 1 1))
 	(assert(flag 1 0))
 )
+
+(defrule rule-1-val3-upleft-corner-7
+	(user 0 0 3)
+	(unknown 1 0 ?v1)
+	(unknown 0 1 ?v2)
+	(unknown 1 1 ?v3)
+	=>
+	(assert(flag 1 1))
+	(assert(flag 1 0))
+	(assert(flag 0 1))
+)
+
 
 (defrule rule-1-val1-upright-corner-1
 	(b_size ?size)
@@ -28192,6 +28234,44 @@
 	=>
 	(assert(flag ?corn 1))
 )
+(defrule rule-1-val2-upright-corner-7
+	(b_size ?size)
+	(user ?corn 0 2)
+	(unknown ?z1 0 ?v1)
+	(unknown ?corn 1 ?v2)
+	(user ?z1 1 ?val)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 0))
+	(assert(flag ?corn 1))
+)
+
+(defrule rule-1-val2-upright-corner-8
+	(b_size ?size)
+	(user ?corn 0 2)
+	(unknown ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(user ?corn 1 ?val)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 0))
+	(assert(flag ?z1 1))
+)
+
+(defrule rule-1-val2-upright-corner-9
+	(b_size ?size)
+	(user ?corn 0 2)
+	(unknown ?corn 1 ?v1)
+	(unknown ?z1 1 ?v2)
+	(user ?z1 0 ?val)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?corn 1))
+	(assert(flag ?z1 1))
+)
 
 (defrule rule-1-val3-upright-corner-1
 	(b_size ?size)
@@ -28257,6 +28337,20 @@
 	=>
 	(assert(flag (- ?corn 1) 1))
 	(assert(flag (- ?corn 1) 0))
+)
+
+(defrule rule-1-val3-upright-corner-7
+	(b_size ?size)
+	(user ?corn 0 3)
+	(unknown ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(unknown ?corn 1 ?v3)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 0))
+	(assert(flag ?z1 1))
+	(assert(flag ?corn 1))
 )
 
 (defrule rule-1-val1-downleft-corner-1
@@ -28370,6 +28464,46 @@
 	(assert(flag 0 1))
 )
 
+(defrule rule-1-val2-downleft-corner-7
+	(user 0 ?corn 2)
+	(unknown 0 ?z1 ?v1)
+	(unknown 1 ?z1 ?v2)
+	(user 1 ?corn ?v)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 0 ?z1))
+	(assert(flag 1 ?z1))
+)
+
+(defrule rule-1-val2-downleft-corner-8
+	(user 0 ?corn 2)
+	(unknown 0 ?z1 ?v1)
+	(unknown 1 ?corn ?v2)
+	(user 1 ?z1 ?v)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 0 ?z1))
+	(assert(flag 1 ?corn))
+)
+
+(defrule rule-1-val2-downleft-corner-9
+	(user 0 ?corn 2)
+	(unknown 1 ?corn ?v1)
+	(unknown 1 ?z1 ?v2)
+	(user 0 ?z1 ?v)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 1 ?corn))
+	(assert(flag 1 ?z1))
+)
+
+
 (defrule rule-1-val3-downleft-corner-1
 	(user 0 ?corn 3)
 	(flag 1 ?z1)
@@ -28434,7 +28568,21 @@
 	=>
 	(assert(flag 1 ?z1))
 	(assert(flag 1 ?corn))
-) 
+)
+
+(defrule rule-1-val3-downleft-corner-7
+	(user 0 ?corn 3)
+	(unknown 0 ?z1 ?v1)
+	(unknown 1 ?z1 ?v2)
+	(unknown 1 ?corn ?v3)
+	(b_size ?size)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag 0 ?z1))
+	(assert(flag 1 ?z1))
+	(assert(flag 1 ?corn))
+)
 
 
 (defrule rule-1-val1-downright-corner-1
@@ -28548,6 +28696,45 @@
 	(assert(flag ?corn ?z1))
 )
 
+(defrule rule-1-val2-downright-corner-7
+	(b_size ?size)
+	(user ?corn ?corn 2)
+	(unknown ?z1 ?z1 ?v1)
+	(unknown ?corn ?z1 ?v2)
+	(user ?z1 ?corn ?v3)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 ?z1))
+	(assert(flag ?corn ?z1))
+)
+
+(defrule rule-1-val2-downright-corner-8
+	(b_size ?size)
+	(user ?corn ?corn 2)
+	(unknown ?z1 ?z1 ?v1)
+	(user ?corn ?z1 ?v2)
+	(unknown ?z1 ?corn ?v3)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 ?z1))
+	(assert(flag ?z1 ?corn))
+)
+
+(defrule rule-1-val2-downright-corner-9
+	(b_size ?size)
+	(user ?corn ?corn 2)
+	(user ?z1 ?z1 ?v1)
+	(unknown ?corn ?z1 ?v2)
+	(unknown ?z1 ?corn ?v3)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?corn ?z1))
+	(assert(flag ?z1 ?corn))
+)
+
 (defrule rule-1-val3-downright-corner-1
 	(b_size ?size)
 	(user ?corn ?corn 3)
@@ -28613,6 +28800,91 @@
 	(assert(flag (- ?corn 1) ?z1))
 	(assert(flag (- ?corn 1) ?corn))
 )
+
+(defrule rule-1-val3-downright-corner-7
+	(b_size ?size)
+	(user ?corn ?corn 3)
+	(unknown ?z1 ?z1 ?v1)
+	(unknown ?z1 ?corn ?v2)
+	(unknown ?corn ?corn ?v3)
+	(test (= ?corn (- ?size 1)))
+	(test (= ?z1 (- ?corn 1)))
+	=>
+	(assert(flag ?z1 ?z1))
+	(assert(flag ?z1 ?corn))
+	(assert(flag ?corn ?corn))
+)
+
+(defrule rule-1-val1-leftside-1
+	(user 0 ?y 1)
+	(lokasi9 0 ?y)
+	(unknown 0 ?z1 ?v1)
+	(user 1 ?z1 ?v2)
+	(user 1 ?y ?v3)
+	(user 1 ?z2 ?v4)
+	(user 0 ?z2 ?v5)
+	(test (= ?z1 (- ?y 1)))
+	(test (= ?z2 (+ ?y 1)))
+	=>
+	(assert(flag 0 ?z1))
+)
+
+(defrule rule-1-val1-leftside-2
+	(user 0 ?y 1)
+	(lokasi9 0 ?y)
+	(user 0 ?z1 ?v1)
+	(unknown 1 ?z1 ?v2)
+	(user 1 ?y ?v3)
+	(user 1 ?z2 ?v4)
+	(user 0 ?z2 ?v5)
+	(test (= ?z1 (- ?y 1)))
+	(test (= ?z2 (+ ?y 1)))
+	=>
+	(assert(flag 1 ?z1))
+)
+
+(defrule rule-1-val1-leftside-3
+	(user 0 ?y 1)
+	(lokasi9 0 ?y)
+	(user 0 ?z1 ?v1)
+	(user 1 ?z1 ?v2)
+	(unknown 1 ?y ?v3)
+	(user 1 ?z2 ?v4)
+	(user 0 ?z2 ?v5)
+	(test (= ?z1 (- ?y 1)))
+	(test (= ?z2 (+ ?y 1)))
+	=>
+	(assert(flag 1 ?y))
+)
+
+(defrule rule-1-val1-leftside-4
+	(user 0 ?y 1)
+	(lokasi9 0 ?y)
+	(user 0 ?z1 ?v1)
+	(user 1 ?z1 ?v2)
+	(user 1 ?y ?v3)
+	(unknown 1 ?z2 ?v4)
+	(user 0 ?z2 ?v5)
+	(test (= ?z1 (- ?y 1)))
+	(test (= ?z2 (+ ?y 1)))
+	=>
+	(assert(flag 1 ?z2))
+)
+
+(defrule rule-1-val1-leftside-5
+	(user 0 ?y 1)
+	(lokasi9 0 ?y)
+	(user 0 ?z1 ?v1)
+	(user 1 ?z1 ?v2)
+	(user 1 ?y ?v3)
+	(user 1 ?z2 ?v4)
+	(unknown 0 ?z2 ?v5)
+	(test (= ?z1 (- ?y 1)))
+	(test (= ?z2 (+ ?y 1)))
+	=>
+	(assert(flag 0 ?z2))
+)
+
 ; ===== BATAS RULE 2 =====
 
 (defrule rule-2-val1-1-flag0-1 
