@@ -57,7 +57,7 @@ listOfNum = [0,1,2,3,4,5,6,7]
 #n = int(input("Masukkan n: "))
 f = open("file-rule-1.txt", "w")
 f.close()
-for n in range(1,4):
+for n in range(1,5):
     comb = combinations(listOfNum, n)
     combinators = []
     ids = 1
