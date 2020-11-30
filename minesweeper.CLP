@@ -226,7 +226,7 @@
 	(b_size ?size)
 	(user ?x ?y 0)
 	(test (< (+ ?x 1) ?size))
-	(test (= ?y ?size))
+	(test (= ?y (- ?size 1)))
 	(test (>= (- ?x 1) 0))
 	(test (>= (- ?y 1) 0))
 	(tile ?z1 ?y ?val1)
@@ -354,11 +354,11 @@
 	(b_size ?size)
 	(tile ?x ?y ?val)
 	(test (< (+ ?x 1) ?size))
-	(test (= ?y ?size))
+	(test (= ?y (- ?size 1)))
 	(test (>= (- ?x 1) 0))
 	(test (>= (- ?y 1) 0))
 	=>
-	(assert (lokasi 8 ?x ?y))
+	(assert (lokasi8 ?x ?y))
 )
 
 (defrule setkodelokasi9
