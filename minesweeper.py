@@ -59,26 +59,40 @@ init_fact = "(user 0 0 0)"
 fact = env.assert_string(init_fact)
 
 # Print initial matrix
-print("=== INITIAL BOARD ===")
+print("==== INITIAL BOARD ====")
 for i in range(b_size):
     for j in range(b_size):
         print("X ", end="")
     print()
 
-env.run()
+# env.run()
+n = 1
+while (len(list(env.activations())) != 0):
+    env.run(limit=1)
+    flags = []
+    users = []
+    # Retrieve flag
+    for fact in env.facts():
+        if (fact.template.name == 'flag'):
+            flags.append((fact[0], fact[1]))
+        elif (fact.template.name == 'user'):
+            users.append((fact[0], fact[1], fact[2]))
 
-for fact in env.facts():
-    print(fact)
-
-flags = []
-
-# Retrieve flag
-for fact in env.facts():
-    if (fact.template.name == 'flag'):
-        flags.append((fact[0], fact[1]))
+      # Print board
+    print("====== RUN KE " + str(n) + " ======")
+    for i in range(b_size):
+        for j in range(b_size):
+            if ((j, i) in flags):
+                print("- ", end="")
+            elif ((j, i, calcValue(j, i)) in users):
+                print(str(calcValue(j, i)) + " ", end="")
+            else:
+                print("X ", end="")
+        print()
+    n += 1
 
 # Print flag
-print("=== FINAL BOARD ===")
+print("===== FINAL BOARD ====")
 for i in range(4):
     for j in range(4):
         if ((j, i) in flags):
