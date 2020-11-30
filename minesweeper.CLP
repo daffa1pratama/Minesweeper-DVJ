@@ -333,6 +333,7 @@
 	(assert (lokasi5 ?x ?y))
 )
 
+; atas
 (defrule setkodelokasi6
 	(declare (salience 2))
 	(b_size ?size)
@@ -345,6 +346,7 @@
 	(assert(lokasi6 ?x ?y))
 )
 
+; right
 (defrule setkodelokasi7
 	(declare (salience 2))
 	(b_size ?size)
@@ -357,6 +359,7 @@
 	(assert(lokasi7 ?x ?y))
 )
 
+; bottom
 (defrule setkodelokasi8
 	(declare (salience 2))
 	(b_size ?size)
@@ -369,6 +372,7 @@
 	(assert (lokasi8 ?x ?y))
 )
 
+; left
 (defrule setkodelokasi9
 	(declare (salience 2))
 	(b_size ?size)
@@ -32273,7 +32277,7 @@
 )
 
 (defrule rule-1-val4-leftside-1
-	(user 0 ?y 3)
+	(user 0 ?y 4)
 	(lokasi9 0 ?y)
 	(unknown 0 ?z1 ?v1)
 	(unknown 1 ?z1 ?v2)
@@ -32290,7 +32294,7 @@
 )
 
 (defrule rule-1-val4-leftside-2
-	(user 0 ?y 3)
+	(user 0 ?y 4)
 	(lokasi9 0 ?y)
 	(unknown 0 ?z1 ?v1)
 	(unknown 1 ?z1 ?v2)
@@ -32307,7 +32311,7 @@
 )
 
 (defrule rule-1-val4-leftside-3
-	(user 0 ?y 3)
+	(user 0 ?y 4)
 	(lokasi9 0 ?y)
 	(unknown 0 ?z1 ?v1)
 	(unknown 1 ?z1 ?v2)
@@ -32324,7 +32328,7 @@
 )
 
 (defrule rule-1-val4-leftside-4
-	(user 0 ?y 3)
+	(user 0 ?y 4)
 	(lokasi9 0 ?y)
 	(unknown 0 ?z1 ?v1)
 	(user 1 ?z1 ?v2)
@@ -32341,7 +32345,7 @@
 )
 
 (defrule rule-1-val4-leftside-5
-	(user 0 ?y 3)
+	(user 0 ?y 4)
 	(lokasi9 0 ?y)
 	(user 0 ?z1 ?v1)
 	(unknown 1 ?z1 ?v2)
@@ -32355,6 +32359,34 @@
 	(assert(flag 1 ?y))
 	(assert(flag 1 ?z2))
 	(assert(flag 0 ?z2))
+)
+
+(defrule rule-1-val1-upside-1
+	(user ?x 0 1)
+	(lokasi6 0 ?y)
+	(unknown ?z1 0 ?v1)
+	(user ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 0))
+)
+
+(defrule rule-1-val1-upside-2
+	(user ?x 0 1)
+	(lokasi6 0 ?y)
+	(user ?z1 0 ?v1)
+	(unknown ?z1 1 ?v2)
+	(user ?x 1 ?v3)
+	(user ?z2 1 ?v4)
+	(user ?z2 0 ?v5)
+	(test (= ?z1 (- ?x 1)))
+	(test (= ?z2 (+ ?x 1)))
+	=>
+	(assert(flag ?z1 1))
 )
 
 ; ===== BATAS RULE 2 =====
