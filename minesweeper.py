@@ -58,7 +58,31 @@ for i in range(b_size):
 init_fact = "(user 0 0 0)"
 fact = env.assert_string(init_fact)
 
+# Print initial matrix
+print("=== INITIAL BOARD ===")
+for i in range(b_size):
+    for j in range(b_size):
+        print("X ", end="")
+    print()
+
 env.run()
 
 for fact in env.facts():
     print(fact)
+
+flags = []
+
+# Retrieve flag
+for fact in env.facts():
+    if (fact.template.name == 'flag'):
+        flags.append((fact[0], fact[1]))
+
+# Print flag
+print("=== FINAL BOARD ===")
+for i in range(4):
+    for j in range(4):
+        if ((j, i) in flags):
+            print("- ", end="")
+        else:
+            print(str(calcValue(j, i)) + " ", end="")
+    print()
