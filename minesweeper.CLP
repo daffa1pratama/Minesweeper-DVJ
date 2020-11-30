@@ -73946,7 +73946,7 @@
 ; RULE 1 UPSIDE FLAG
 (defrule rule-1-val2-1-flag1-1-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
@@ -73961,7 +73961,7 @@
 
 (defrule rule-1-val2-1-flag1-2-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
@@ -73976,7 +73976,7 @@
 
 (defrule rule-1-val2-2-flag1-1-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
@@ -73991,7 +73991,7 @@
 
 (defrule rule-1-val2-2-flag1-2-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
@@ -74006,7 +74006,7 @@
 
 (defrule rule-1-val2-3-flag1-1-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
@@ -74021,7 +74021,7 @@
 
 (defrule rule-1-val2-3-flag1-2-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
@@ -74036,7 +74036,7 @@
 
 (defrule rule-1-val2-4-flag1-1-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
@@ -74051,7 +74051,7 @@
 
 (defrule rule-1-val2-4-flag1-2-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
@@ -74066,7 +74066,7 @@
 
 (defrule rule-1-val2-5-flag1-1-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
@@ -74081,7 +74081,7 @@
 
 (defrule rule-1-val2-5-flag1-2-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
@@ -74096,7 +74096,7 @@
 
 (defrule rule-1-val2-6-flag1-1-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
@@ -74111,7 +74111,7 @@
 
 (defrule rule-1-val2-6-flag1-2-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
@@ -74126,7 +74126,7 @@
 
 (defrule rule-1-val2-7-flag1-1-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
@@ -74141,7 +74141,7 @@
 
 (defrule rule-1-val2-7-flag1-2-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
@@ -74156,7 +74156,7 @@
 
 (defrule rule-1-val2-8-flag1-1-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
@@ -74171,7 +74171,7 @@
 
 (defrule rule-1-val2-8-flag1-2-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
@@ -74186,7 +74186,7 @@
 
 (defrule rule-1-val2-9-flag1-1-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
@@ -74201,7 +74201,7 @@
 
 (defrule rule-1-val2-9-flag1-2-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
@@ -74216,7 +74216,7 @@
 
 (defrule rule-1-val2-10-flag1-1-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
@@ -74231,7 +74231,7 @@
 
 (defrule rule-1-val2-10-flag1-2-upside 
    (user ?x ?y 2) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
@@ -74246,7 +74246,7 @@
 
 (defrule rule-1-val3-1-flag1-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
@@ -74262,7 +74262,7 @@
 
 (defrule rule-1-val3-1-flag1-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
@@ -74278,7 +74278,7 @@
 
 (defrule rule-1-val3-1-flag1-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
@@ -74294,7 +74294,7 @@
 
 (defrule rule-1-val3-1-flag2-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z3 ?z4) 
    (user ?z1 ?z4 ?val7) 
@@ -74309,7 +74309,7 @@
 
 (defrule rule-1-val3-1-flag2-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?x ?z4) 
    (user ?z1 ?z4 ?val7) 
@@ -74324,7 +74324,7 @@
 
 (defrule rule-1-val3-1-flag2-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?x ?z4) 
    (user ?z1 ?z4 ?val7) 
@@ -74339,7 +74339,7 @@
 
 (defrule rule-1-val3-2-flag1-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
@@ -74355,7 +74355,7 @@
 
 (defrule rule-1-val3-2-flag1-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
@@ -74371,7 +74371,7 @@
 
 (defrule rule-1-val3-2-flag1-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
@@ -74387,7 +74387,7 @@
 
 (defrule rule-1-val3-2-flag2-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z3 ?z4) 
    (user ?x ?z4 ?val6) 
@@ -74402,7 +74402,7 @@
 
 (defrule rule-1-val3-2-flag2-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?z4) 
    (user ?x ?z4 ?val6) 
@@ -74417,7 +74417,7 @@
 
 (defrule rule-1-val3-2-flag2-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?z4) 
    (user ?x ?z4 ?val6) 
@@ -74432,7 +74432,7 @@
 
 (defrule rule-1-val3-3-flag1-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
@@ -74448,7 +74448,7 @@
 
 (defrule rule-1-val3-3-flag1-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
@@ -74464,7 +74464,7 @@
 
 (defrule rule-1-val3-3-flag1-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
@@ -74480,7 +74480,7 @@
 
 (defrule rule-1-val3-3-flag2-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z3 ?z4) 
    (user ?x ?z4 ?val6) 
@@ -74495,7 +74495,7 @@
 
 (defrule rule-1-val3-3-flag2-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?y) 
    (user ?x ?z4 ?val6) 
@@ -74510,7 +74510,7 @@
 
 (defrule rule-1-val3-3-flag2-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?y) 
    (user ?x ?z4 ?val6) 
@@ -74525,7 +74525,7 @@
 
 (defrule rule-1-val3-4-flag1-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
@@ -74541,7 +74541,7 @@
 
 (defrule rule-1-val3-4-flag1-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
@@ -74557,7 +74557,7 @@
 
 (defrule rule-1-val3-4-flag1-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
@@ -74573,7 +74573,7 @@
 
 (defrule rule-1-val3-4-flag2-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?z4 ?val5) 
@@ -74588,7 +74588,7 @@
 
 (defrule rule-1-val3-4-flag2-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?z4 ?val5) 
@@ -74603,7 +74603,7 @@
 
 (defrule rule-1-val3-4-flag2-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?z4) 
    (user ?z3 ?z4 ?val5) 
@@ -74618,7 +74618,7 @@
 
 (defrule rule-1-val3-5-flag1-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
@@ -74634,7 +74634,7 @@
 
 (defrule rule-1-val3-5-flag1-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
@@ -74650,7 +74650,7 @@
 
 (defrule rule-1-val3-5-flag1-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
@@ -74666,7 +74666,7 @@
 
 (defrule rule-1-val3-5-flag2-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?z4 ?val5) 
@@ -74681,7 +74681,7 @@
 
 (defrule rule-1-val3-5-flag2-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?z4 ?val5) 
@@ -74696,7 +74696,7 @@
 
 (defrule rule-1-val3-5-flag2-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?y) 
    (user ?z3 ?z4 ?val5) 
@@ -74711,7 +74711,7 @@
 
 (defrule rule-1-val3-6-flag1-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
@@ -74727,7 +74727,7 @@
 
 (defrule rule-1-val3-6-flag1-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
@@ -74743,7 +74743,7 @@
 
 (defrule rule-1-val3-6-flag1-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
@@ -74759,7 +74759,7 @@
 
 (defrule rule-1-val3-6-flag2-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?z4 ?val5) 
@@ -74774,7 +74774,7 @@
 
 (defrule rule-1-val3-6-flag2-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?z4 ?val5) 
@@ -74789,7 +74789,7 @@
 
 (defrule rule-1-val3-6-flag2-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (flag ?z1 ?y) 
    (user ?z3 ?z4 ?val5) 
@@ -74804,7 +74804,7 @@
 
 (defrule rule-1-val3-7-flag1-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
@@ -74820,7 +74820,7 @@
 
 (defrule rule-1-val3-7-flag1-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
@@ -74836,7 +74836,7 @@
 
 (defrule rule-1-val3-7-flag1-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
@@ -74852,7 +74852,7 @@
 
 (defrule rule-1-val3-7-flag2-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?x ?z4) 
    (user ?z3 ?y ?val4) 
@@ -74867,7 +74867,7 @@
 
 (defrule rule-1-val3-7-flag2-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?z4) 
    (user ?z3 ?y ?val4) 
@@ -74882,7 +74882,7 @@
 
 (defrule rule-1-val3-7-flag2-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?z4) 
    (user ?z3 ?y ?val4) 
@@ -74897,7 +74897,7 @@
 
 (defrule rule-1-val3-8-flag1-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
@@ -74913,7 +74913,7 @@
 
 (defrule rule-1-val3-8-flag1-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
@@ -74929,7 +74929,7 @@
 
 (defrule rule-1-val3-8-flag1-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
@@ -74945,7 +74945,7 @@
 
 (defrule rule-1-val3-8-flag2-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?x ?z4) 
    (user ?z3 ?y ?val4) 
@@ -74960,7 +74960,7 @@
 
 (defrule rule-1-val3-8-flag2-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
@@ -74975,7 +74975,7 @@
 
 (defrule rule-1-val3-8-flag2-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
@@ -74990,7 +74990,7 @@
 
 (defrule rule-1-val3-9-flag1-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
@@ -75006,7 +75006,7 @@
 
 (defrule rule-1-val3-9-flag1-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
@@ -75022,7 +75022,7 @@
 
 (defrule rule-1-val3-9-flag1-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
@@ -75038,7 +75038,7 @@
 
 (defrule rule-1-val3-9-flag2-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?z4) 
    (user ?z3 ?y ?val4) 
@@ -75053,7 +75053,7 @@
 
 (defrule rule-1-val3-9-flag2-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
@@ -75068,7 +75068,7 @@
 
 (defrule rule-1-val3-9-flag2-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
@@ -75083,7 +75083,7 @@
 
 (defrule rule-1-val3-10-flag1-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
@@ -75099,7 +75099,7 @@
 
 (defrule rule-1-val3-10-flag1-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
@@ -75115,7 +75115,7 @@
 
 (defrule rule-1-val3-10-flag1-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
@@ -75131,7 +75131,7 @@
 
 (defrule rule-1-val3-10-flag2-1-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?z4) 
    (user ?z3 ?y ?val4) 
@@ -75146,7 +75146,7 @@
 
 (defrule rule-1-val3-10-flag2-2-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
@@ -75161,7 +75161,7 @@
 
 (defrule rule-1-val3-10-flag2-3-upside 
    (user ?x ?y 3) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
@@ -75176,7 +75176,7 @@
 
 (defrule rule-1-val4-1-flag1-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?z1 ?y ?val8) 
    (unknown ?z3 ?z4 ?val5) 
@@ -75193,7 +75193,7 @@
 
 (defrule rule-1-val4-1-flag1-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?z1 ?y ?val8) 
    (unknown ?z3 ?y ?val4) 
@@ -75210,7 +75210,7 @@
 
 (defrule rule-1-val4-1-flag1-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z1 ?y ?val8) 
    (unknown ?z3 ?y ?val4) 
@@ -75227,7 +75227,7 @@
 
 (defrule rule-1-val4-1-flag1-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?z1 ?y ?val8) 
    (unknown ?z3 ?y ?val4) 
@@ -75244,7 +75244,7 @@
 
 (defrule rule-1-val4-1-flag2-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z3 ?z4) 
    (user ?z1 ?y ?val8) 
@@ -75260,7 +75260,7 @@
 
 (defrule rule-1-val4-1-flag2-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?x ?z4) 
    (user ?z1 ?y ?val8) 
@@ -75276,7 +75276,7 @@
 
 (defrule rule-1-val4-1-flag2-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?z4) 
    (user ?z1 ?y ?val8) 
@@ -75292,7 +75292,7 @@
 
 (defrule rule-1-val4-1-flag2-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?x ?z4) 
    (user ?z1 ?y ?val8) 
@@ -75308,7 +75308,7 @@
 
 (defrule rule-1-val4-1-flag2-5-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?z4) 
    (user ?z1 ?y ?val8) 
@@ -75324,7 +75324,7 @@
 
 (defrule rule-1-val4-1-flag2-6-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?z4) 
    (user ?z1 ?y ?val8) 
@@ -75340,7 +75340,7 @@
 
 (defrule rule-1-val4-1-flag3-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z3 ?z4) 
    (flag ?x ?z4) 
@@ -75355,7 +75355,7 @@
 
 (defrule rule-1-val4-1-flag3-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?z4) 
@@ -75370,7 +75370,7 @@
 
 (defrule rule-1-val4-1-flag3-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?z4) 
@@ -75385,7 +75385,7 @@
 
 (defrule rule-1-val4-1-flag3-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?x ?z4) 
    (flag ?z1 ?z4) 
@@ -75400,7 +75400,7 @@
 
 (defrule rule-1-val4-2-flag1-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?z1 ?z4 ?val7) 
    (unknown ?z3 ?z4 ?val5) 
@@ -75417,7 +75417,7 @@
 
 (defrule rule-1-val4-2-flag1-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?z1 ?z4 ?val7) 
    (unknown ?z3 ?y ?val4) 
@@ -75434,7 +75434,7 @@
 
 (defrule rule-1-val4-2-flag1-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z1 ?z4 ?val7) 
    (unknown ?z3 ?y ?val4) 
@@ -75451,7 +75451,7 @@
 
 (defrule rule-1-val4-2-flag1-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?z1 ?z4 ?val7) 
    (unknown ?z3 ?y ?val4) 
@@ -75468,7 +75468,7 @@
 
 (defrule rule-1-val4-2-flag2-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z3 ?z4) 
    (user ?z1 ?z4 ?val7) 
@@ -75484,7 +75484,7 @@
 
 (defrule rule-1-val4-2-flag2-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?x ?z4) 
    (user ?z1 ?z4 ?val7) 
@@ -75500,7 +75500,7 @@
 
 (defrule rule-1-val4-2-flag2-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?y) 
    (user ?z1 ?z4 ?val7) 
@@ -75516,7 +75516,7 @@
 
 (defrule rule-1-val4-2-flag2-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?x ?z4) 
    (user ?z1 ?z4 ?val7) 
@@ -75532,7 +75532,7 @@
 
 (defrule rule-1-val4-2-flag2-5-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?y) 
    (user ?z1 ?z4 ?val7) 
@@ -75548,7 +75548,7 @@
 
 (defrule rule-1-val4-2-flag2-6-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?y) 
    (user ?z1 ?z4 ?val7) 
@@ -75564,7 +75564,7 @@
 
 (defrule rule-1-val4-2-flag3-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z3 ?z4) 
    (flag ?x ?z4) 
@@ -75579,7 +75579,7 @@
 
 (defrule rule-1-val4-2-flag3-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?y) 
@@ -75594,7 +75594,7 @@
 
 (defrule rule-1-val4-2-flag3-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?y) 
@@ -75609,7 +75609,7 @@
 
 (defrule rule-1-val4-2-flag3-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?x ?z4) 
    (flag ?z1 ?y) 
@@ -75624,7 +75624,7 @@
 
 (defrule rule-1-val4-3-flag1-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?x ?z4 ?val6) 
    (unknown ?z3 ?z4 ?val5) 
@@ -75641,7 +75641,7 @@
 
 (defrule rule-1-val4-3-flag1-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?x ?z4 ?val6) 
    (unknown ?z3 ?y ?val4) 
@@ -75658,7 +75658,7 @@
 
 (defrule rule-1-val4-3-flag1-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?x ?z4 ?val6) 
    (unknown ?z3 ?y ?val4) 
@@ -75675,7 +75675,7 @@
 
 (defrule rule-1-val4-3-flag1-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?x ?z4 ?val6) 
    (unknown ?z3 ?y ?val4) 
@@ -75692,7 +75692,7 @@
 
 (defrule rule-1-val4-3-flag2-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z3 ?z4) 
    (user ?x ?z4 ?val6) 
@@ -75708,7 +75708,7 @@
 
 (defrule rule-1-val4-3-flag2-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?z4) 
    (user ?x ?z4 ?val6) 
@@ -75724,7 +75724,7 @@
 
 (defrule rule-1-val4-3-flag2-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?y) 
    (user ?x ?z4 ?val6) 
@@ -75740,7 +75740,7 @@
 
 (defrule rule-1-val4-3-flag2-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?z4) 
    (user ?x ?z4 ?val6) 
@@ -75756,7 +75756,7 @@
 
 (defrule rule-1-val4-3-flag2-5-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?y) 
    (user ?x ?z4 ?val6) 
@@ -75772,7 +75772,7 @@
 
 (defrule rule-1-val4-3-flag2-6-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (flag ?z1 ?y) 
    (user ?x ?z4 ?val6) 
@@ -75788,7 +75788,7 @@
 
 (defrule rule-1-val4-3-flag3-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?z4) 
@@ -75803,7 +75803,7 @@
 
 (defrule rule-1-val4-3-flag3-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?y) 
@@ -75818,7 +75818,7 @@
 
 (defrule rule-1-val4-3-flag3-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?z4) 
    (flag ?z1 ?y) 
@@ -75833,7 +75833,7 @@
 
 (defrule rule-1-val4-3-flag3-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?z4) 
    (flag ?z1 ?y) 
@@ -75848,7 +75848,7 @@
 
 (defrule rule-1-val4-4-flag1-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (user ?z3 ?z4 ?val5) 
    (unknown ?x ?z4 ?val6) 
@@ -75865,7 +75865,7 @@
 
 (defrule rule-1-val4-4-flag1-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?z4 ?val5) 
    (unknown ?z3 ?y ?val4) 
@@ -75882,7 +75882,7 @@
 
 (defrule rule-1-val4-4-flag1-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?z4 ?val5) 
    (unknown ?z3 ?y ?val4) 
@@ -75899,7 +75899,7 @@
 
 (defrule rule-1-val4-4-flag1-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?z4 ?val5) 
    (unknown ?z3 ?y ?val4) 
@@ -75916,7 +75916,7 @@
 
 (defrule rule-1-val4-4-flag2-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?z4 ?val5) 
@@ -75932,7 +75932,7 @@
 
 (defrule rule-1-val4-4-flag2-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?z4 ?val5) 
@@ -75948,7 +75948,7 @@
 
 (defrule rule-1-val4-4-flag2-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?z4 ?val5) 
@@ -75964,7 +75964,7 @@
 
 (defrule rule-1-val4-4-flag2-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?z4) 
    (user ?z3 ?z4 ?val5) 
@@ -75980,7 +75980,7 @@
 
 (defrule rule-1-val4-4-flag2-5-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?y) 
    (user ?z3 ?z4 ?val5) 
@@ -75996,7 +75996,7 @@
 
 (defrule rule-1-val4-4-flag2-6-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (flag ?z1 ?y) 
    (user ?z3 ?z4 ?val5) 
@@ -76012,7 +76012,7 @@
 
 (defrule rule-1-val4-4-flag3-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?z4) 
@@ -76027,7 +76027,7 @@
 
 (defrule rule-1-val4-4-flag3-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?y) 
@@ -76042,7 +76042,7 @@
 
 (defrule rule-1-val4-4-flag3-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?y) 
    (flag ?z1 ?z4) 
    (flag ?z1 ?y) 
@@ -76057,7 +76057,7 @@
 
 (defrule rule-1-val4-4-flag3-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?z4) 
    (flag ?z1 ?y) 
@@ -76072,7 +76072,7 @@
 
 (defrule rule-1-val4-5-flag1-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (user ?z3 ?y ?val4) 
    (unknown ?x ?z4 ?val6) 
@@ -76089,7 +76089,7 @@
 
 (defrule rule-1-val4-5-flag1-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (user ?z3 ?y ?val4) 
    (unknown ?z3 ?z4 ?val5) 
@@ -76106,7 +76106,7 @@
 
 (defrule rule-1-val4-5-flag1-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (user ?z3 ?y ?val4) 
    (unknown ?z3 ?z4 ?val5) 
@@ -76123,7 +76123,7 @@
 
 (defrule rule-1-val4-5-flag1-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
    (unknown ?z3 ?z4 ?val5) 
@@ -76140,7 +76140,7 @@
 
 (defrule rule-1-val4-5-flag2-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?x ?z4) 
    (user ?z3 ?y ?val4) 
@@ -76156,7 +76156,7 @@
 
 (defrule rule-1-val4-5-flag2-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?z4) 
    (user ?z3 ?y ?val4) 
@@ -76172,7 +76172,7 @@
 
 (defrule rule-1-val4-5-flag2-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
@@ -76188,7 +76188,7 @@
 
 (defrule rule-1-val4-5-flag2-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?z4) 
    (user ?z3 ?y ?val4) 
@@ -76204,7 +76204,7 @@
 
 (defrule rule-1-val4-5-flag2-5-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
@@ -76220,7 +76220,7 @@
 
 (defrule rule-1-val4-5-flag2-6-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z1 ?z4) 
    (flag ?z1 ?y) 
    (user ?z3 ?y ?val4) 
@@ -76236,7 +76236,7 @@
 
 (defrule rule-1-val4-5-flag3-1-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?x ?z4) 
    (flag ?z1 ?z4) 
@@ -76251,7 +76251,7 @@
 
 (defrule rule-1-val4-5-flag3-2-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?x ?z4) 
    (flag ?z1 ?y) 
@@ -76266,7 +76266,7 @@
 
 (defrule rule-1-val4-5-flag3-3-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?z3 ?z4) 
    (flag ?z1 ?z4) 
    (flag ?z1 ?y) 
@@ -76281,7 +76281,7 @@
 
 (defrule rule-1-val4-5-flag3-4-upside 
    (user ?x ?y 4) 
-   (lokasi9 ?x ?y) 
+   (lokasi6 ?x ?y) 
    (flag ?x ?z4) 
    (flag ?z1 ?z4) 
    (flag ?z1 ?y) 
