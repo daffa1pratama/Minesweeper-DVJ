@@ -31961,6 +31961,38 @@
 	(assert(flag 0 ?z2))
 )
 
+(defrule rule-1-val2-leftside-1
+	(user 0 ?y 2)
+	(lokasi9 0 ?y)
+	(unknown 0 ?z1 ?v1)
+	(unknown 1 ?z1 ?v2)
+	(user 1 ?y ?v3)
+	(user 1 ?z2 ?v4)
+	(user 0 ?z2 ?v5)
+	(test (= ?z1 (- ?y 1)))
+	(test (= ?z2 (+ ?y 1)))
+	=>
+	(assert(flag 0 ?z1))
+	(assert(flag 1 ?z1))
+)
+
+(defrule rule-1-val2-leftside-2
+	(user 0 ?y 2)
+	(lokasi9 0 ?y)
+	(unknown 0 ?z1 ?v1)
+	(unknown 1 ?z1 ?v2)
+	(user 1 ?y ?v3)
+	(user 1 ?z2 ?v4)
+	(user 0 ?z2 ?v5)
+	(test (= ?z1 (- ?y 1)))
+	(test (= ?z2 (+ ?y 1)))
+	=>
+	(assert(flag 0 ?z1))
+	(assert(flag 1 ?z1))
+)
+
+; to-do: terusin ini, terus masih belum upside, rightside, downside
+
 ; ===== BATAS RULE 2 =====
 
 (defrule rule-2-val1-1-flag0-1 
