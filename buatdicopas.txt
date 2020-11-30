@@ -1,0 +1,41 @@
+; ini kayaknya bukan rule 1 wkwk
+(defrule rule-1-val1-upleft-corner-1
+	(user 0 0 1)
+	(flag 0 1)
+	(tile 1 1 ?val1)
+	(tile 1 0 ?val2)
+	=>
+	(user 1 1 ?val1)
+	(user 1 0 ?val2)
+)
+
+(defrule rule-1-val1-upleft-corner-2
+	(user 0 0 1)
+	(flag 1 1)
+	(tile 0 1 ?val1)
+	(tile 1 0 ?val2)
+	=>
+	(user 0 1 ?val1)
+	(user 1 0 ?val2)
+)
+
+(defrule rule-1-val1-upleft-corner-3
+	(user 0 0 1)
+	(flag 1 0)
+	(tile 0 1 ?val1)
+	(tile 1 0 ?val2)
+	=>
+	(user 0 1 ?val1)
+	(user 1 0 ?val2)
+)
+
+(defrule rule-1-val2-upleft-corner-1
+	(user 0 0 1)
+	(flag 0 1)
+	(flag 1 1)
+	(tile 1 0 ?val2)
+	=>
+	(user 1 1 ?val1)
+	(user 1 0 ?val2)
+)
+; sampai sini
