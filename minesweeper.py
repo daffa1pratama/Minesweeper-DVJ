@@ -29,8 +29,8 @@ fact = env.assert_string(new_fact)
 
 # Assert bomb fact
 for i in range(bomb_count):
-    x_loc = int(input())
-    y_loc = int(input())
+    x_loc = int(input("Bomb " + str(i+1) + " koordinat x : "))
+    y_loc = int(input("Bomb " + str(i+1) + " koordinat y : "))
     bomb_loc.append((x_loc, y_loc))
     new_fact = "(bomb " + str(x_loc) + " " + str(y_loc) + ")"
     fact = env.assert_string(new_fact)
