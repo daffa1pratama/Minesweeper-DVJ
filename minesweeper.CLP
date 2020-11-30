@@ -271,19 +271,19 @@
 
 (defrule discover-tile
 	(user ?x ?y ?v)
-	?f1 <- (unknown ?x ?y)
+	?f1 <- (unknown ?x ?y ?val)
 	=>
 	(retract ?f1)
 )
 
 (defrule discover-flag
 	(flag ?x ?y)
-	?f1 <- (unknown ?x ?y)
+	?f1 <- (unknown ?x ?y ?val)
 	=>
 	(retract ?f1)
 )
 
-(defrule 	kodelokasi1
+(defrule setkodelokasi1
 	(declare (salience 2))
 	(b_size ?size)
 	(tile ?x ?y ?val)
