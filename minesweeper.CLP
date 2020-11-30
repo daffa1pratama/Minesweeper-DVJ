@@ -391,12 +391,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val1-2-flag0-1 
@@ -409,12 +410,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val1-3-flag0-1 
@@ -427,12 +429,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val1-4-flag0-1 
@@ -445,12 +448,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val1-5-flag0-1 
@@ -463,12 +467,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val1-6-flag0-1 
@@ -481,12 +486,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val1-7-flag0-1 
@@ -499,12 +505,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val1-8-flag0-1 
@@ -517,12 +524,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-1-flag0-1 
@@ -534,13 +542,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val2-1-flag1-1 
@@ -553,12 +563,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val2-1-flag1-2 
@@ -571,12 +582,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val2-2-flag0-1 
@@ -588,13 +600,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val2-2-flag1-1 
@@ -607,12 +621,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val2-2-flag1-2 
@@ -625,12 +640,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val2-3-flag0-1 
@@ -642,13 +658,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val2-3-flag1-1 
@@ -661,12 +679,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val2-3-flag1-2 
@@ -679,12 +698,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val2-4-flag0-1 
@@ -696,13 +716,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val2-4-flag1-1 
@@ -715,12 +737,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val2-4-flag1-2 
@@ -733,12 +756,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val2-5-flag0-1 
@@ -750,13 +774,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val2-5-flag1-1 
@@ -769,12 +795,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val2-5-flag1-2 
@@ -787,12 +814,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val2-6-flag0-1 
@@ -804,13 +832,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val2-6-flag1-1 
@@ -823,12 +853,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val2-6-flag1-2 
@@ -841,12 +872,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val2-7-flag0-1 
@@ -858,13 +890,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-7-flag1-1 
@@ -877,12 +911,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-7-flag1-2 
@@ -895,12 +930,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val2-8-flag0-1 
@@ -912,13 +948,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val2-8-flag1-1 
@@ -931,12 +969,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val2-8-flag1-2 
@@ -949,12 +988,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val2-9-flag0-1 
@@ -966,13 +1006,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val2-9-flag1-1 
@@ -985,12 +1027,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val2-9-flag1-2 
@@ -1003,12 +1046,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val2-10-flag0-1 
@@ -1020,13 +1064,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val2-10-flag1-1 
@@ -1039,12 +1085,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val2-10-flag1-2 
@@ -1057,12 +1104,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val2-11-flag0-1 
@@ -1074,13 +1122,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val2-11-flag1-1 
@@ -1093,12 +1143,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val2-11-flag1-2 
@@ -1111,12 +1162,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val2-12-flag0-1 
@@ -1128,13 +1180,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val2-12-flag1-1 
@@ -1147,12 +1201,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val2-12-flag1-2 
@@ -1165,12 +1220,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val2-13-flag0-1 
@@ -1182,13 +1238,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-13-flag1-1 
@@ -1201,12 +1259,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-13-flag1-2 
@@ -1219,12 +1278,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val2-14-flag0-1 
@@ -1236,13 +1296,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val2-14-flag1-1 
@@ -1255,12 +1317,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val2-14-flag1-2 
@@ -1273,12 +1336,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val2-15-flag0-1 
@@ -1290,13 +1354,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val2-15-flag1-1 
@@ -1309,12 +1375,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val2-15-flag1-2 
@@ -1327,12 +1394,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val2-16-flag0-1 
@@ -1344,13 +1412,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val2-16-flag1-1 
@@ -1363,12 +1433,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val2-16-flag1-2 
@@ -1381,12 +1452,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val2-17-flag0-1 
@@ -1398,13 +1470,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val2-17-flag1-1 
@@ -1417,12 +1491,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val2-17-flag1-2 
@@ -1435,12 +1510,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val2-18-flag0-1 
@@ -1452,13 +1528,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-18-flag1-1 
@@ -1471,12 +1549,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-18-flag1-2 
@@ -1489,12 +1568,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val2-19-flag0-1 
@@ -1506,13 +1586,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val2-19-flag1-1 
@@ -1525,12 +1607,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val2-19-flag1-2 
@@ -1543,12 +1626,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val2-20-flag0-1 
@@ -1560,13 +1644,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val2-20-flag1-1 
@@ -1579,12 +1665,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val2-20-flag1-2 
@@ -1597,12 +1684,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val2-21-flag0-1 
@@ -1614,13 +1702,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val2-21-flag1-1 
@@ -1633,12 +1723,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val2-21-flag1-2 
@@ -1651,12 +1742,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val2-22-flag0-1 
@@ -1668,13 +1760,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-22-flag1-1 
@@ -1687,12 +1781,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-22-flag1-2 
@@ -1705,12 +1800,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val2-23-flag0-1 
@@ -1722,13 +1818,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val2-23-flag1-1 
@@ -1741,12 +1839,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val2-23-flag1-2 
@@ -1759,12 +1858,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val2-24-flag0-1 
@@ -1776,13 +1876,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val2-24-flag1-1 
@@ -1795,12 +1897,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val2-24-flag1-2 
@@ -1813,12 +1916,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val2-25-flag0-1 
@@ -1830,13 +1934,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-25-flag1-1 
@@ -1849,12 +1955,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-25-flag1-2 
@@ -1867,12 +1974,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val2-26-flag0-1 
@@ -1884,13 +1992,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val2-26-flag1-1 
@@ -1903,12 +2013,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val2-26-flag1-2 
@@ -1921,12 +2032,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val2-27-flag0-1 
@@ -1938,13 +2050,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-27-flag1-1 
@@ -1957,12 +2071,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-27-flag1-2 
@@ -1975,12 +2090,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val2-28-flag0-1 
@@ -1992,13 +2108,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-28-flag1-1 
@@ -2011,12 +2129,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val2-28-flag1-2 
@@ -2029,12 +2148,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-1-flag0-1 
@@ -2045,13 +2165,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
+   (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-1-flag1-1 
@@ -2063,13 +2187,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-1-flag1-2 
@@ -2081,13 +2207,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-1-flag1-3 
@@ -2099,13 +2227,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-1-flag2-1 
@@ -2118,12 +2248,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-1-flag2-2 
@@ -2136,12 +2267,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-1-flag2-3 
@@ -2154,12 +2286,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-2-flag0-1 
@@ -2170,14 +2303,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-2-flag1-1 
@@ -2189,13 +2325,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-2-flag1-2 
@@ -2207,13 +2345,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-2-flag1-3 
@@ -2225,13 +2365,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-2-flag2-1 
@@ -2244,12 +2386,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-2-flag2-2 
@@ -2262,12 +2405,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-2-flag2-3 
@@ -2280,12 +2424,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-3-flag0-1 
@@ -2296,14 +2441,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-3-flag1-1 
@@ -2315,13 +2463,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-3-flag1-2 
@@ -2333,13 +2483,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-3-flag1-3 
@@ -2351,13 +2503,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-3-flag2-1 
@@ -2370,12 +2524,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-3-flag2-2 
@@ -2388,12 +2543,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-3-flag2-3 
@@ -2406,12 +2562,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-4-flag0-1 
@@ -2422,14 +2579,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-4-flag1-1 
@@ -2441,13 +2601,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-4-flag1-2 
@@ -2459,13 +2621,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-4-flag1-3 
@@ -2477,13 +2641,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-4-flag2-1 
@@ -2496,12 +2662,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-4-flag2-2 
@@ -2514,12 +2681,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-4-flag2-3 
@@ -2532,12 +2700,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-5-flag0-1 
@@ -2548,14 +2717,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-5-flag1-1 
@@ -2567,13 +2739,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-5-flag1-2 
@@ -2585,13 +2759,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-5-flag1-3 
@@ -2603,13 +2779,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-5-flag2-1 
@@ -2622,12 +2800,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-5-flag2-2 
@@ -2640,12 +2819,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-5-flag2-3 
@@ -2658,12 +2838,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-6-flag0-1 
@@ -2674,14 +2855,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-6-flag1-1 
@@ -2693,13 +2877,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-6-flag1-2 
@@ -2711,13 +2897,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-6-flag1-3 
@@ -2729,13 +2917,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-6-flag2-1 
@@ -2748,12 +2938,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-6-flag2-2 
@@ -2766,12 +2957,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-6-flag2-3 
@@ -2784,12 +2976,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-7-flag0-1 
@@ -2800,14 +2993,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-7-flag1-1 
@@ -2819,13 +3015,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-7-flag1-2 
@@ -2837,13 +3035,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-7-flag1-3 
@@ -2855,13 +3055,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-7-flag2-1 
@@ -2874,12 +3076,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-7-flag2-2 
@@ -2892,12 +3095,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-7-flag2-3 
@@ -2910,12 +3114,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-8-flag0-1 
@@ -2926,14 +3131,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-8-flag1-1 
@@ -2945,13 +3153,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-8-flag1-2 
@@ -2963,13 +3173,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-8-flag1-3 
@@ -2981,13 +3193,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-8-flag2-1 
@@ -3000,12 +3214,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-8-flag2-2 
@@ -3018,12 +3233,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-8-flag2-3 
@@ -3036,12 +3252,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-9-flag0-1 
@@ -3052,14 +3269,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-9-flag1-1 
@@ -3071,13 +3291,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-9-flag1-2 
@@ -3089,13 +3311,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-9-flag1-3 
@@ -3107,13 +3331,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-9-flag2-1 
@@ -3126,12 +3352,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-9-flag2-2 
@@ -3144,12 +3371,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-9-flag2-3 
@@ -3162,12 +3390,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-10-flag0-1 
@@ -3178,14 +3407,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-10-flag1-1 
@@ -3197,13 +3429,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-10-flag1-2 
@@ -3215,13 +3449,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-10-flag1-3 
@@ -3233,13 +3469,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-10-flag2-1 
@@ -3252,12 +3490,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-10-flag2-2 
@@ -3270,12 +3509,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-10-flag2-3 
@@ -3288,12 +3528,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-11-flag0-1 
@@ -3304,14 +3545,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-11-flag1-1 
@@ -3323,13 +3567,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-11-flag1-2 
@@ -3341,13 +3587,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-11-flag1-3 
@@ -3359,13 +3607,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-11-flag2-1 
@@ -3378,12 +3628,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-11-flag2-2 
@@ -3396,12 +3647,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-11-flag2-3 
@@ -3414,12 +3666,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-12-flag0-1 
@@ -3430,14 +3683,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-12-flag1-1 
@@ -3449,13 +3705,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-12-flag1-2 
@@ -3467,13 +3725,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-12-flag1-3 
@@ -3485,13 +3745,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-12-flag2-1 
@@ -3504,12 +3766,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-12-flag2-2 
@@ -3522,12 +3785,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-12-flag2-3 
@@ -3540,12 +3804,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-13-flag0-1 
@@ -3556,14 +3821,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-13-flag1-1 
@@ -3575,13 +3843,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-13-flag1-2 
@@ -3593,13 +3863,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-13-flag1-3 
@@ -3611,13 +3883,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-13-flag2-1 
@@ -3630,12 +3904,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-13-flag2-2 
@@ -3648,12 +3923,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-13-flag2-3 
@@ -3666,12 +3942,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-14-flag0-1 
@@ -3682,14 +3959,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-14-flag1-1 
@@ -3701,13 +3981,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-14-flag1-2 
@@ -3719,13 +4001,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-14-flag1-3 
@@ -3737,13 +4021,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-14-flag2-1 
@@ -3756,12 +4042,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-14-flag2-2 
@@ -3774,12 +4061,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-14-flag2-3 
@@ -3792,12 +4080,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-15-flag0-1 
@@ -3808,14 +4097,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-15-flag1-1 
@@ -3827,13 +4119,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-15-flag1-2 
@@ -3845,13 +4139,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-15-flag1-3 
@@ -3863,13 +4159,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-15-flag2-1 
@@ -3882,12 +4180,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-15-flag2-2 
@@ -3900,12 +4199,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-15-flag2-3 
@@ -3918,12 +4218,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-16-flag0-1 
@@ -3934,14 +4235,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-16-flag1-1 
@@ -3953,13 +4257,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-16-flag1-2 
@@ -3971,13 +4277,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-16-flag1-3 
@@ -3989,13 +4297,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-16-flag2-1 
@@ -4008,12 +4318,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-16-flag2-2 
@@ -4026,12 +4337,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-16-flag2-3 
@@ -4044,12 +4356,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-17-flag0-1 
@@ -4060,14 +4373,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-17-flag1-1 
@@ -4079,13 +4395,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-17-flag1-2 
@@ -4097,13 +4415,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-17-flag1-3 
@@ -4115,13 +4435,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-17-flag2-1 
@@ -4134,12 +4456,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-17-flag2-2 
@@ -4152,12 +4475,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-17-flag2-3 
@@ -4170,12 +4494,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-18-flag0-1 
@@ -4186,14 +4511,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-18-flag1-1 
@@ -4205,13 +4533,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-18-flag1-2 
@@ -4223,13 +4553,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-18-flag1-3 
@@ -4241,13 +4573,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-18-flag2-1 
@@ -4260,12 +4594,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-18-flag2-2 
@@ -4278,12 +4613,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-18-flag2-3 
@@ -4296,12 +4632,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-19-flag0-1 
@@ -4312,14 +4649,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-19-flag1-1 
@@ -4331,13 +4671,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-19-flag1-2 
@@ -4349,13 +4691,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-19-flag1-3 
@@ -4367,13 +4711,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-19-flag2-1 
@@ -4386,12 +4732,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-19-flag2-2 
@@ -4404,12 +4751,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-19-flag2-3 
@@ -4422,12 +4770,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-20-flag0-1 
@@ -4438,14 +4787,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-20-flag1-1 
@@ -4457,13 +4809,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-20-flag1-2 
@@ -4475,13 +4829,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-20-flag1-3 
@@ -4493,13 +4849,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-20-flag2-1 
@@ -4512,12 +4870,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-20-flag2-2 
@@ -4530,12 +4889,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-20-flag2-3 
@@ -4548,12 +4908,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-21-flag0-1 
@@ -4564,13 +4925,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
+   (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-21-flag1-1 
@@ -4582,13 +4947,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-21-flag1-2 
@@ -4600,13 +4967,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-21-flag1-3 
@@ -4618,13 +4987,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-21-flag2-1 
@@ -4637,12 +5008,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-21-flag2-2 
@@ -4655,12 +5027,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-21-flag2-3 
@@ -4673,12 +5046,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val3-22-flag0-1 
@@ -4689,14 +5063,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-22-flag1-1 
@@ -4708,13 +5085,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-22-flag1-2 
@@ -4726,13 +5105,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-22-flag1-3 
@@ -4744,13 +5125,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-22-flag2-1 
@@ -4763,12 +5146,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-22-flag2-2 
@@ -4781,12 +5165,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-22-flag2-3 
@@ -4799,12 +5184,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-23-flag0-1 
@@ -4815,14 +5201,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-23-flag1-1 
@@ -4834,13 +5223,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-23-flag1-2 
@@ -4852,13 +5243,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-23-flag1-3 
@@ -4870,13 +5263,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-23-flag2-1 
@@ -4889,12 +5284,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-23-flag2-2 
@@ -4907,12 +5303,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-23-flag2-3 
@@ -4925,12 +5322,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-24-flag0-1 
@@ -4941,14 +5339,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-24-flag1-1 
@@ -4960,13 +5361,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-24-flag1-2 
@@ -4978,13 +5381,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-24-flag1-3 
@@ -4996,13 +5401,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-24-flag2-1 
@@ -5015,12 +5422,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-24-flag2-2 
@@ -5033,12 +5441,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-24-flag2-3 
@@ -5051,12 +5460,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-25-flag0-1 
@@ -5067,14 +5477,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-25-flag1-1 
@@ -5086,13 +5499,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-25-flag1-2 
@@ -5104,13 +5519,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-25-flag1-3 
@@ -5122,13 +5539,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-25-flag2-1 
@@ -5141,12 +5560,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-25-flag2-2 
@@ -5159,12 +5579,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-25-flag2-3 
@@ -5177,12 +5598,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-26-flag0-1 
@@ -5193,14 +5615,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-26-flag1-1 
@@ -5212,13 +5637,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-26-flag1-2 
@@ -5230,13 +5657,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-26-flag1-3 
@@ -5248,13 +5677,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-26-flag2-1 
@@ -5267,12 +5698,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-26-flag2-2 
@@ -5285,12 +5717,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-26-flag2-3 
@@ -5303,12 +5736,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-27-flag0-1 
@@ -5319,14 +5753,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-27-flag1-1 
@@ -5338,13 +5775,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-27-flag1-2 
@@ -5356,13 +5795,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-27-flag1-3 
@@ -5374,13 +5815,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-27-flag2-1 
@@ -5393,12 +5836,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-27-flag2-2 
@@ -5411,12 +5855,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-27-flag2-3 
@@ -5429,12 +5874,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-28-flag0-1 
@@ -5445,14 +5891,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-28-flag1-1 
@@ -5464,13 +5913,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-28-flag1-2 
@@ -5482,13 +5933,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-28-flag1-3 
@@ -5500,13 +5953,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-28-flag2-1 
@@ -5519,12 +5974,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-28-flag2-2 
@@ -5537,12 +5993,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-28-flag2-3 
@@ -5555,12 +6012,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-29-flag0-1 
@@ -5571,14 +6029,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-29-flag1-1 
@@ -5590,13 +6051,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-29-flag1-2 
@@ -5608,13 +6071,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-29-flag1-3 
@@ -5626,13 +6091,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-29-flag2-1 
@@ -5645,12 +6112,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-29-flag2-2 
@@ -5663,12 +6131,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-29-flag2-3 
@@ -5681,12 +6150,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-30-flag0-1 
@@ -5697,14 +6167,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-30-flag1-1 
@@ -5716,13 +6189,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-30-flag1-2 
@@ -5734,13 +6209,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-30-flag1-3 
@@ -5752,13 +6229,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-30-flag2-1 
@@ -5771,12 +6250,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-30-flag2-2 
@@ -5789,12 +6269,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-30-flag2-3 
@@ -5807,12 +6288,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-31-flag0-1 
@@ -5823,14 +6305,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-31-flag1-1 
@@ -5842,13 +6327,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-31-flag1-2 
@@ -5860,13 +6347,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-31-flag1-3 
@@ -5878,13 +6367,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-31-flag2-1 
@@ -5897,12 +6388,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-31-flag2-2 
@@ -5915,12 +6407,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-31-flag2-3 
@@ -5933,12 +6426,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-32-flag0-1 
@@ -5949,14 +6443,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-32-flag1-1 
@@ -5968,13 +6465,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-32-flag1-2 
@@ -5986,13 +6485,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-32-flag1-3 
@@ -6004,13 +6505,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-32-flag2-1 
@@ -6023,12 +6526,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-32-flag2-2 
@@ -6041,12 +6545,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-32-flag2-3 
@@ -6059,12 +6564,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-33-flag0-1 
@@ -6075,14 +6581,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-33-flag1-1 
@@ -6094,13 +6603,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-33-flag1-2 
@@ -6112,13 +6623,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-33-flag1-3 
@@ -6130,13 +6643,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-33-flag2-1 
@@ -6149,12 +6664,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-33-flag2-2 
@@ -6167,12 +6683,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-33-flag2-3 
@@ -6185,12 +6702,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-34-flag0-1 
@@ -6201,14 +6719,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-34-flag1-1 
@@ -6220,13 +6741,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-34-flag1-2 
@@ -6238,13 +6761,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-34-flag1-3 
@@ -6256,13 +6781,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-34-flag2-1 
@@ -6275,12 +6802,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-34-flag2-2 
@@ -6293,12 +6821,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-34-flag2-3 
@@ -6311,12 +6840,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-35-flag0-1 
@@ -6327,14 +6857,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-35-flag1-1 
@@ -6346,13 +6879,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-35-flag1-2 
@@ -6364,13 +6899,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-35-flag1-3 
@@ -6382,13 +6919,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-35-flag2-1 
@@ -6401,12 +6940,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-35-flag2-2 
@@ -6419,12 +6959,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-35-flag2-3 
@@ -6437,12 +6978,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-36-flag0-1 
@@ -6453,14 +6995,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-36-flag1-1 
@@ -6472,13 +7017,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-36-flag1-2 
@@ -6490,13 +7037,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-36-flag1-3 
@@ -6508,13 +7057,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-36-flag2-1 
@@ -6527,12 +7078,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-36-flag2-2 
@@ -6545,12 +7097,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-36-flag2-3 
@@ -6563,12 +7116,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val3-37-flag0-1 
@@ -6579,13 +7133,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
+   (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-37-flag1-1 
@@ -6597,13 +7155,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-37-flag1-2 
@@ -6615,13 +7175,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-37-flag1-3 
@@ -6633,13 +7195,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-37-flag2-1 
@@ -6652,12 +7216,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-37-flag2-2 
@@ -6670,12 +7235,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-37-flag2-3 
@@ -6688,12 +7254,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-38-flag0-1 
@@ -6704,14 +7271,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-38-flag1-1 
@@ -6723,13 +7293,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-38-flag1-2 
@@ -6741,13 +7313,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-38-flag1-3 
@@ -6759,13 +7333,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-38-flag2-1 
@@ -6778,12 +7354,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-38-flag2-2 
@@ -6796,12 +7373,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-38-flag2-3 
@@ -6814,12 +7392,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-39-flag0-1 
@@ -6830,14 +7409,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-39-flag1-1 
@@ -6849,13 +7431,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-39-flag1-2 
@@ -6867,13 +7451,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-39-flag1-3 
@@ -6885,13 +7471,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-39-flag2-1 
@@ -6904,12 +7492,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-39-flag2-2 
@@ -6922,12 +7511,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-39-flag2-3 
@@ -6940,12 +7530,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-40-flag0-1 
@@ -6956,14 +7547,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-40-flag1-1 
@@ -6975,13 +7569,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-40-flag1-2 
@@ -6993,13 +7589,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-40-flag1-3 
@@ -7011,13 +7609,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-40-flag2-1 
@@ -7030,12 +7630,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-40-flag2-2 
@@ -7048,12 +7649,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-40-flag2-3 
@@ -7066,12 +7668,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-41-flag0-1 
@@ -7082,14 +7685,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-41-flag1-1 
@@ -7101,13 +7707,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-41-flag1-2 
@@ -7119,13 +7727,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-41-flag1-3 
@@ -7137,13 +7747,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-41-flag2-1 
@@ -7156,12 +7768,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-41-flag2-2 
@@ -7174,12 +7787,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-41-flag2-3 
@@ -7192,12 +7806,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-42-flag0-1 
@@ -7208,14 +7823,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-42-flag1-1 
@@ -7227,13 +7845,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-42-flag1-2 
@@ -7245,13 +7865,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-42-flag1-3 
@@ -7263,13 +7885,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-42-flag2-1 
@@ -7282,12 +7906,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-42-flag2-2 
@@ -7300,12 +7925,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-42-flag2-3 
@@ -7318,12 +7944,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-43-flag0-1 
@@ -7334,14 +7961,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-43-flag1-1 
@@ -7353,13 +7983,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-43-flag1-2 
@@ -7371,13 +8003,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-43-flag1-3 
@@ -7389,13 +8023,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-43-flag2-1 
@@ -7408,12 +8044,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-43-flag2-2 
@@ -7426,12 +8063,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-43-flag2-3 
@@ -7444,12 +8082,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-44-flag0-1 
@@ -7460,14 +8099,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-44-flag1-1 
@@ -7479,13 +8121,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-44-flag1-2 
@@ -7497,13 +8141,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-44-flag1-3 
@@ -7515,13 +8161,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-44-flag2-1 
@@ -7534,12 +8182,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-44-flag2-2 
@@ -7552,12 +8201,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-44-flag2-3 
@@ -7570,12 +8220,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-45-flag0-1 
@@ -7586,14 +8237,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-45-flag1-1 
@@ -7605,13 +8259,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-45-flag1-2 
@@ -7623,13 +8279,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-45-flag1-3 
@@ -7641,13 +8299,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-45-flag2-1 
@@ -7660,12 +8320,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-45-flag2-2 
@@ -7678,12 +8339,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-45-flag2-3 
@@ -7696,12 +8358,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-46-flag0-1 
@@ -7712,14 +8375,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-46-flag1-1 
@@ -7731,13 +8397,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-46-flag1-2 
@@ -7749,13 +8417,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-46-flag1-3 
@@ -7767,13 +8437,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-46-flag2-1 
@@ -7786,12 +8458,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-46-flag2-2 
@@ -7804,12 +8477,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-46-flag2-3 
@@ -7822,12 +8496,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val3-47-flag0-1 
@@ -7838,14 +8513,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-47-flag1-1 
@@ -7857,13 +8535,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-47-flag1-2 
@@ -7875,13 +8555,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-47-flag1-3 
@@ -7893,13 +8575,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-47-flag2-1 
@@ -7912,12 +8596,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-47-flag2-2 
@@ -7930,12 +8615,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-47-flag2-3 
@@ -7948,12 +8634,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-48-flag0-1 
@@ -7964,14 +8651,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-48-flag1-1 
@@ -7983,13 +8673,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-48-flag1-2 
@@ -8001,13 +8693,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-48-flag1-3 
@@ -8019,13 +8713,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-48-flag2-1 
@@ -8038,12 +8734,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-48-flag2-2 
@@ -8056,12 +8753,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-48-flag2-3 
@@ -8074,12 +8772,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-49-flag0-1 
@@ -8090,14 +8789,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-49-flag1-1 
@@ -8109,13 +8811,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-49-flag1-2 
@@ -8127,13 +8831,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-49-flag1-3 
@@ -8145,13 +8851,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-49-flag2-1 
@@ -8164,12 +8872,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-49-flag2-2 
@@ -8182,12 +8891,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-49-flag2-3 
@@ -8200,12 +8910,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-50-flag0-1 
@@ -8216,14 +8927,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-50-flag1-1 
@@ -8235,13 +8949,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-50-flag1-2 
@@ -8253,13 +8969,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-50-flag1-3 
@@ -8271,13 +8989,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-50-flag2-1 
@@ -8290,12 +9010,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-50-flag2-2 
@@ -8308,12 +9029,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-50-flag2-3 
@@ -8326,12 +9048,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-51-flag0-1 
@@ -8342,14 +9065,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-51-flag1-1 
@@ -8361,13 +9087,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-51-flag1-2 
@@ -8379,13 +9107,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-51-flag1-3 
@@ -8397,13 +9127,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-51-flag2-1 
@@ -8416,12 +9148,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-51-flag2-2 
@@ -8434,12 +9167,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-51-flag2-3 
@@ -8452,12 +9186,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-52-flag0-1 
@@ -8468,14 +9203,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-52-flag1-1 
@@ -8487,13 +9225,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-52-flag1-2 
@@ -8505,13 +9245,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-52-flag1-3 
@@ -8523,13 +9265,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-52-flag2-1 
@@ -8542,12 +9286,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-52-flag2-2 
@@ -8560,12 +9305,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-52-flag2-3 
@@ -8578,12 +9324,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val3-53-flag0-1 
@@ -8594,13 +9341,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
+   (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-53-flag1-1 
@@ -8612,13 +9363,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-53-flag1-2 
@@ -8630,13 +9383,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-53-flag1-3 
@@ -8648,13 +9403,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-53-flag2-1 
@@ -8667,12 +9424,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-53-flag2-2 
@@ -8685,12 +9443,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-53-flag2-3 
@@ -8703,12 +9462,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-54-flag0-1 
@@ -8719,14 +9479,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-54-flag1-1 
@@ -8738,13 +9501,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-54-flag1-2 
@@ -8756,13 +9521,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-54-flag1-3 
@@ -8774,13 +9541,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-54-flag2-1 
@@ -8793,12 +9562,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-54-flag2-2 
@@ -8811,12 +9581,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val3-54-flag2-3 
@@ -8829,12 +9600,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-55-flag0-1 
@@ -8845,14 +9617,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-55-flag1-1 
@@ -8864,13 +9639,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-55-flag1-2 
@@ -8882,13 +9659,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-55-flag1-3 
@@ -8900,13 +9679,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-55-flag2-1 
@@ -8919,12 +9700,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-55-flag2-2 
@@ -8937,12 +9719,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-55-flag2-3 
@@ -8955,12 +9738,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val3-56-flag0-1 
@@ -8971,14 +9755,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-56-flag1-1 
@@ -8990,13 +9777,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-56-flag1-2 
@@ -9008,13 +9797,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-56-flag1-3 
@@ -9026,13 +9817,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-56-flag2-1 
@@ -9045,12 +9838,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val3-56-flag2-2 
@@ -9063,12 +9857,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val3-56-flag2-3 
@@ -9081,12 +9876,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-1-flag0-1 
@@ -9096,14 +9892,19 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
+   (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-1-flag1-1 
@@ -9114,14 +9915,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-1-flag1-2 
@@ -9132,14 +9936,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-1-flag1-3 
@@ -9150,14 +9957,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-1-flag1-4 
@@ -9168,13 +9978,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
+   (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-1-flag2-1 
@@ -9186,13 +10000,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-1-flag2-2 
@@ -9204,13 +10020,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-1-flag2-3 
@@ -9222,13 +10040,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-1-flag2-4 
@@ -9240,13 +10060,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-1-flag2-5 
@@ -9258,13 +10080,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-1-flag2-6 
@@ -9276,13 +10100,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-1-flag3-1 
@@ -9295,12 +10121,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-1-flag3-2 
@@ -9313,12 +10140,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-1-flag3-3 
@@ -9331,12 +10159,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-1-flag3-4 
@@ -9349,12 +10178,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-2-flag0-1 
@@ -9364,14 +10194,19 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
+   (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-2-flag1-1 
@@ -9382,14 +10217,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-2-flag1-2 
@@ -9400,14 +10238,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-2-flag1-3 
@@ -9418,14 +10259,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-2-flag1-4 
@@ -9436,13 +10280,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
+   (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-2-flag2-1 
@@ -9454,13 +10302,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-2-flag2-2 
@@ -9472,13 +10322,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-2-flag2-3 
@@ -9490,13 +10342,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-2-flag2-4 
@@ -9508,13 +10362,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-2-flag2-5 
@@ -9526,13 +10382,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-2-flag2-6 
@@ -9544,13 +10402,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-2-flag3-1 
@@ -9563,12 +10423,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-2-flag3-2 
@@ -9581,12 +10442,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-2-flag3-3 
@@ -9599,12 +10461,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-2-flag3-4 
@@ -9617,12 +10480,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-3-flag0-1 
@@ -9632,14 +10496,19 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
+   (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-3-flag1-1 
@@ -9650,14 +10519,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-3-flag1-2 
@@ -9668,14 +10540,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-3-flag1-3 
@@ -9686,14 +10561,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-3-flag1-4 
@@ -9704,13 +10582,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
+   (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-3-flag2-1 
@@ -9722,13 +10604,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-3-flag2-2 
@@ -9740,13 +10624,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-3-flag2-3 
@@ -9758,13 +10644,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-3-flag2-4 
@@ -9776,13 +10664,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-3-flag2-5 
@@ -9794,13 +10684,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-3-flag2-6 
@@ -9812,13 +10704,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-3-flag3-1 
@@ -9831,12 +10725,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-3-flag3-2 
@@ -9849,12 +10744,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-3-flag3-3 
@@ -9867,12 +10763,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-3-flag3-4 
@@ -9885,12 +10782,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-4-flag0-1 
@@ -9900,14 +10798,19 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
+   (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-4-flag1-1 
@@ -9918,14 +10821,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-4-flag1-2 
@@ -9936,14 +10842,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-4-flag1-3 
@@ -9954,14 +10863,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-4-flag1-4 
@@ -9972,13 +10884,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
+   (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-4-flag2-1 
@@ -9990,13 +10906,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-4-flag2-2 
@@ -10008,13 +10926,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-4-flag2-3 
@@ -10026,13 +10946,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-4-flag2-4 
@@ -10044,13 +10966,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-4-flag2-5 
@@ -10062,13 +10986,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-4-flag2-6 
@@ -10080,13 +11006,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-4-flag3-1 
@@ -10099,12 +11027,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-4-flag3-2 
@@ -10117,12 +11046,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-4-flag3-3 
@@ -10135,12 +11065,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-4-flag3-4 
@@ -10153,12 +11084,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-5-flag0-1 
@@ -10168,14 +11100,19 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
+   (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-5-flag1-1 
@@ -10186,14 +11123,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-5-flag1-2 
@@ -10204,14 +11144,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-5-flag1-3 
@@ -10222,14 +11165,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-5-flag1-4 
@@ -10240,13 +11186,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
+   (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-5-flag2-1 
@@ -10258,13 +11208,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-5-flag2-2 
@@ -10276,13 +11228,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-5-flag2-3 
@@ -10294,13 +11248,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-5-flag2-4 
@@ -10312,13 +11268,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-5-flag2-5 
@@ -10330,13 +11288,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-5-flag2-6 
@@ -10348,13 +11308,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-5-flag3-1 
@@ -10367,12 +11329,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-5-flag3-2 
@@ -10385,12 +11348,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-5-flag3-3 
@@ -10403,12 +11367,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-5-flag3-4 
@@ -10421,12 +11386,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-6-flag0-1 
@@ -10436,15 +11402,19 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-6-flag1-1 
@@ -10455,14 +11425,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-6-flag1-2 
@@ -10473,14 +11446,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-6-flag1-3 
@@ -10491,14 +11467,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-6-flag1-4 
@@ -10509,14 +11488,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-6-flag2-1 
@@ -10528,13 +11510,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-6-flag2-2 
@@ -10546,13 +11530,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-6-flag2-3 
@@ -10564,13 +11550,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-6-flag2-4 
@@ -10582,13 +11570,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-6-flag2-5 
@@ -10600,13 +11590,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-6-flag2-6 
@@ -10618,13 +11610,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-6-flag3-1 
@@ -10637,12 +11631,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-6-flag3-2 
@@ -10655,12 +11650,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-6-flag3-3 
@@ -10673,12 +11669,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-6-flag3-4 
@@ -10691,12 +11688,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-7-flag0-1 
@@ -10706,15 +11704,19 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-7-flag1-1 
@@ -10725,14 +11727,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-7-flag1-2 
@@ -10743,14 +11748,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-7-flag1-3 
@@ -10761,14 +11769,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-7-flag1-4 
@@ -10779,14 +11790,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-7-flag2-1 
@@ -10798,13 +11812,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-7-flag2-2 
@@ -10816,13 +11832,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-7-flag2-3 
@@ -10834,13 +11852,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-7-flag2-4 
@@ -10852,13 +11872,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-7-flag2-5 
@@ -10870,13 +11892,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-7-flag2-6 
@@ -10888,13 +11912,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-7-flag3-1 
@@ -10907,12 +11933,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-7-flag3-2 
@@ -10925,12 +11952,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-7-flag3-3 
@@ -10943,12 +11971,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-7-flag3-4 
@@ -10961,12 +11990,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-8-flag0-1 
@@ -10976,15 +12006,19 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-8-flag1-1 
@@ -10995,14 +12029,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-8-flag1-2 
@@ -11013,14 +12050,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-8-flag1-3 
@@ -11031,14 +12071,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-8-flag1-4 
@@ -11049,14 +12092,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-8-flag2-1 
@@ -11068,13 +12114,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-8-flag2-2 
@@ -11086,13 +12134,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-8-flag2-3 
@@ -11104,13 +12154,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-8-flag2-4 
@@ -11122,13 +12174,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-8-flag2-5 
@@ -11140,13 +12194,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-8-flag2-6 
@@ -11158,13 +12214,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-8-flag3-1 
@@ -11177,12 +12235,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-8-flag3-2 
@@ -11195,12 +12254,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-8-flag3-3 
@@ -11213,12 +12273,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-8-flag3-4 
@@ -11231,12 +12292,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-9-flag0-1 
@@ -11246,15 +12308,19 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-9-flag1-1 
@@ -11265,14 +12331,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-9-flag1-2 
@@ -11283,14 +12352,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-9-flag1-3 
@@ -11301,14 +12373,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-9-flag1-4 
@@ -11319,14 +12394,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-9-flag2-1 
@@ -11338,13 +12416,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-9-flag2-2 
@@ -11356,13 +12436,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-9-flag2-3 
@@ -11374,13 +12456,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-9-flag2-4 
@@ -11392,13 +12476,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-9-flag2-5 
@@ -11410,13 +12496,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-9-flag2-6 
@@ -11428,13 +12516,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-9-flag3-1 
@@ -11447,12 +12537,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-9-flag3-2 
@@ -11465,12 +12556,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-9-flag3-3 
@@ -11483,12 +12575,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-9-flag3-4 
@@ -11501,12 +12594,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-10-flag0-1 
@@ -11516,15 +12610,19 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-10-flag1-1 
@@ -11535,14 +12633,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-10-flag1-2 
@@ -11553,14 +12654,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-10-flag1-3 
@@ -11571,14 +12675,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-10-flag1-4 
@@ -11589,14 +12696,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-10-flag2-1 
@@ -11608,13 +12718,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-10-flag2-2 
@@ -11626,13 +12738,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-10-flag2-3 
@@ -11644,13 +12758,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-10-flag2-4 
@@ -11662,13 +12778,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-10-flag2-5 
@@ -11680,13 +12798,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-10-flag2-6 
@@ -11698,13 +12818,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-10-flag3-1 
@@ -11717,12 +12839,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-10-flag3-2 
@@ -11735,12 +12858,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-10-flag3-3 
@@ -11753,12 +12877,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-10-flag3-4 
@@ -11771,12 +12896,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-11-flag0-1 
@@ -11786,15 +12912,19 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-11-flag1-1 
@@ -11805,14 +12935,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-11-flag1-2 
@@ -11823,14 +12956,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-11-flag1-3 
@@ -11841,14 +12977,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-11-flag1-4 
@@ -11859,14 +12998,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-11-flag2-1 
@@ -11878,13 +13020,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-11-flag2-2 
@@ -11896,13 +13040,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-11-flag2-3 
@@ -11914,13 +13060,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-11-flag2-4 
@@ -11932,13 +13080,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-11-flag2-5 
@@ -11950,13 +13100,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-11-flag2-6 
@@ -11968,13 +13120,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-11-flag3-1 
@@ -11987,12 +13141,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-11-flag3-2 
@@ -12005,12 +13160,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-11-flag3-3 
@@ -12023,12 +13179,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-11-flag3-4 
@@ -12041,12 +13198,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-12-flag0-1 
@@ -12056,15 +13214,19 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-12-flag1-1 
@@ -12075,14 +13237,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-12-flag1-2 
@@ -12093,14 +13258,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-12-flag1-3 
@@ -12111,14 +13279,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-12-flag1-4 
@@ -12129,14 +13300,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-12-flag2-1 
@@ -12148,13 +13322,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-12-flag2-2 
@@ -12166,13 +13342,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-12-flag2-3 
@@ -12184,13 +13362,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-12-flag2-4 
@@ -12202,13 +13382,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-12-flag2-5 
@@ -12220,13 +13402,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-12-flag2-6 
@@ -12238,13 +13422,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-12-flag3-1 
@@ -12257,12 +13443,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-12-flag3-2 
@@ -12275,12 +13462,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-12-flag3-3 
@@ -12293,12 +13481,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-12-flag3-4 
@@ -12311,12 +13500,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-13-flag0-1 
@@ -12326,15 +13516,19 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-13-flag1-1 
@@ -12345,14 +13539,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-13-flag1-2 
@@ -12363,14 +13560,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-13-flag1-3 
@@ -12381,14 +13581,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-13-flag1-4 
@@ -12399,14 +13602,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-13-flag2-1 
@@ -12418,13 +13624,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-13-flag2-2 
@@ -12436,13 +13644,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-13-flag2-3 
@@ -12454,13 +13664,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-13-flag2-4 
@@ -12472,13 +13684,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-13-flag2-5 
@@ -12490,13 +13704,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-13-flag2-6 
@@ -12508,13 +13724,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-13-flag3-1 
@@ -12527,12 +13745,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-13-flag3-2 
@@ -12545,12 +13764,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-13-flag3-3 
@@ -12563,12 +13783,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-13-flag3-4 
@@ -12581,12 +13802,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-14-flag0-1 
@@ -12596,15 +13818,19 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-14-flag1-1 
@@ -12615,14 +13841,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-14-flag1-2 
@@ -12633,14 +13862,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-14-flag1-3 
@@ -12651,14 +13883,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-14-flag1-4 
@@ -12669,14 +13904,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-14-flag2-1 
@@ -12688,13 +13926,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-14-flag2-2 
@@ -12706,13 +13946,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-14-flag2-3 
@@ -12724,13 +13966,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-14-flag2-4 
@@ -12742,13 +13986,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-14-flag2-5 
@@ -12760,13 +14006,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-14-flag2-6 
@@ -12778,13 +14026,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-14-flag3-1 
@@ -12797,12 +14047,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-14-flag3-2 
@@ -12815,12 +14066,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-14-flag3-3 
@@ -12833,12 +14085,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-14-flag3-4 
@@ -12851,12 +14104,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-15-flag0-1 
@@ -12866,14 +14120,19 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
+   (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-15-flag1-1 
@@ -12884,14 +14143,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-15-flag1-2 
@@ -12902,13 +14164,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
+   (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-15-flag1-3 
@@ -12919,14 +14185,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-15-flag1-4 
@@ -12937,14 +14206,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-15-flag2-1 
@@ -12956,13 +14228,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-15-flag2-2 
@@ -12974,13 +14248,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-15-flag2-3 
@@ -12992,13 +14268,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-15-flag2-4 
@@ -13010,13 +14288,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-15-flag2-5 
@@ -13028,13 +14308,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-15-flag2-6 
@@ -13046,13 +14328,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-15-flag3-1 
@@ -13065,12 +14349,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-15-flag3-2 
@@ -13083,12 +14368,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-15-flag3-3 
@@ -13101,12 +14387,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-15-flag3-4 
@@ -13119,12 +14406,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-16-flag0-1 
@@ -13134,14 +14422,19 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
+   (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-16-flag1-1 
@@ -13152,13 +14445,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
+   (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-16-flag1-2 
@@ -13169,14 +14466,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-16-flag1-3 
@@ -13187,14 +14487,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-16-flag1-4 
@@ -13205,14 +14508,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-16-flag2-1 
@@ -13224,13 +14530,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-16-flag2-2 
@@ -13242,13 +14550,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-16-flag2-3 
@@ -13260,13 +14570,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-16-flag2-4 
@@ -13278,13 +14590,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-16-flag2-5 
@@ -13296,13 +14610,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-16-flag2-6 
@@ -13314,13 +14630,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-16-flag3-1 
@@ -13333,12 +14651,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-16-flag3-2 
@@ -13351,12 +14670,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-16-flag3-3 
@@ -13369,12 +14689,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-16-flag3-4 
@@ -13387,12 +14708,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-17-flag0-1 
@@ -13402,15 +14724,19 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-17-flag1-1 
@@ -13421,14 +14747,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-17-flag1-2 
@@ -13439,14 +14768,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-17-flag1-3 
@@ -13457,14 +14789,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-17-flag1-4 
@@ -13475,14 +14810,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-17-flag2-1 
@@ -13494,13 +14832,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-17-flag2-2 
@@ -13512,13 +14852,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-17-flag2-3 
@@ -13530,13 +14872,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-17-flag2-4 
@@ -13548,13 +14892,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-17-flag2-5 
@@ -13566,13 +14912,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-17-flag2-6 
@@ -13584,13 +14932,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-17-flag3-1 
@@ -13603,12 +14953,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-17-flag3-2 
@@ -13621,12 +14972,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-17-flag3-3 
@@ -13639,12 +14991,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-17-flag3-4 
@@ -13657,12 +15010,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-18-flag0-1 
@@ -13672,15 +15026,19 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-18-flag1-1 
@@ -13691,14 +15049,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-18-flag1-2 
@@ -13709,14 +15070,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-18-flag1-3 
@@ -13727,14 +15091,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-18-flag1-4 
@@ -13745,14 +15112,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-18-flag2-1 
@@ -13764,13 +15134,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-18-flag2-2 
@@ -13782,13 +15154,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-18-flag2-3 
@@ -13800,13 +15174,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-18-flag2-4 
@@ -13818,13 +15194,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-18-flag2-5 
@@ -13836,13 +15214,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-18-flag2-6 
@@ -13854,13 +15234,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-18-flag3-1 
@@ -13873,12 +15255,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-18-flag3-2 
@@ -13891,12 +15274,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-18-flag3-3 
@@ -13909,12 +15293,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-18-flag3-4 
@@ -13927,12 +15312,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-19-flag0-1 
@@ -13942,15 +15328,19 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-19-flag1-1 
@@ -13961,14 +15351,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-19-flag1-2 
@@ -13979,14 +15372,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-19-flag1-3 
@@ -13997,14 +15393,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-19-flag1-4 
@@ -14015,14 +15414,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-19-flag2-1 
@@ -14034,13 +15436,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-19-flag2-2 
@@ -14052,13 +15456,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-19-flag2-3 
@@ -14070,13 +15476,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-19-flag2-4 
@@ -14088,13 +15496,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-19-flag2-5 
@@ -14106,13 +15516,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-19-flag2-6 
@@ -14124,13 +15536,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-19-flag3-1 
@@ -14143,12 +15557,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-19-flag3-2 
@@ -14161,12 +15576,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-19-flag3-3 
@@ -14179,12 +15595,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-19-flag3-4 
@@ -14197,12 +15614,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-20-flag0-1 
@@ -14212,15 +15630,19 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-20-flag1-1 
@@ -14231,14 +15653,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-20-flag1-2 
@@ -14249,14 +15674,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-20-flag1-3 
@@ -14267,14 +15695,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-20-flag1-4 
@@ -14285,14 +15716,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-20-flag2-1 
@@ -14304,13 +15738,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-20-flag2-2 
@@ -14322,13 +15758,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-20-flag2-3 
@@ -14340,13 +15778,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-20-flag2-4 
@@ -14358,13 +15798,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-20-flag2-5 
@@ -14376,13 +15818,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-20-flag2-6 
@@ -14394,13 +15838,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-20-flag3-1 
@@ -14413,12 +15859,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-20-flag3-2 
@@ -14431,12 +15878,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-20-flag3-3 
@@ -14449,12 +15897,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-20-flag3-4 
@@ -14467,12 +15916,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-21-flag0-1 
@@ -14482,15 +15932,19 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-21-flag1-1 
@@ -14501,14 +15955,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-21-flag1-2 
@@ -14519,14 +15976,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-21-flag1-3 
@@ -14537,14 +15997,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-21-flag1-4 
@@ -14555,14 +16018,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-21-flag2-1 
@@ -14574,13 +16040,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-21-flag2-2 
@@ -14592,13 +16060,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-21-flag2-3 
@@ -14610,13 +16080,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-21-flag2-4 
@@ -14628,13 +16100,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-21-flag2-5 
@@ -14646,13 +16120,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-21-flag2-6 
@@ -14664,13 +16140,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-21-flag3-1 
@@ -14683,12 +16161,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-21-flag3-2 
@@ -14701,12 +16180,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-21-flag3-3 
@@ -14719,12 +16199,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-21-flag3-4 
@@ -14737,12 +16218,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-22-flag0-1 
@@ -14752,15 +16234,19 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-22-flag1-1 
@@ -14771,14 +16257,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-22-flag1-2 
@@ -14789,14 +16278,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-22-flag1-3 
@@ -14807,14 +16299,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-22-flag1-4 
@@ -14825,14 +16320,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-22-flag2-1 
@@ -14844,13 +16342,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-22-flag2-2 
@@ -14862,13 +16362,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-22-flag2-3 
@@ -14880,13 +16382,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-22-flag2-4 
@@ -14898,13 +16402,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-22-flag2-5 
@@ -14916,13 +16422,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-22-flag2-6 
@@ -14934,13 +16442,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-22-flag3-1 
@@ -14953,12 +16463,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-22-flag3-2 
@@ -14971,12 +16482,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-22-flag3-3 
@@ -14989,12 +16501,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-22-flag3-4 
@@ -15007,12 +16520,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-23-flag0-1 
@@ -15022,15 +16536,19 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-23-flag1-1 
@@ -15041,14 +16559,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-23-flag1-2 
@@ -15059,14 +16580,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-23-flag1-3 
@@ -15077,14 +16601,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-23-flag1-4 
@@ -15095,14 +16622,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-23-flag2-1 
@@ -15114,13 +16644,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-23-flag2-2 
@@ -15132,13 +16664,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-23-flag2-3 
@@ -15150,13 +16684,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-23-flag2-4 
@@ -15168,13 +16704,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-23-flag2-5 
@@ -15186,13 +16724,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-23-flag2-6 
@@ -15204,13 +16744,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-23-flag3-1 
@@ -15223,12 +16765,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-23-flag3-2 
@@ -15241,12 +16784,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-23-flag3-3 
@@ -15259,12 +16803,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-23-flag3-4 
@@ -15277,12 +16822,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-24-flag0-1 
@@ -15292,15 +16838,19 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-24-flag1-1 
@@ -15311,14 +16861,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-24-flag1-2 
@@ -15329,14 +16882,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-24-flag1-3 
@@ -15347,14 +16903,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-24-flag1-4 
@@ -15365,14 +16924,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-24-flag2-1 
@@ -15384,13 +16946,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-24-flag2-2 
@@ -15402,13 +16966,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-24-flag2-3 
@@ -15420,13 +16986,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-24-flag2-4 
@@ -15438,13 +17006,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-24-flag2-5 
@@ -15456,13 +17026,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-24-flag2-6 
@@ -15474,13 +17046,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-24-flag3-1 
@@ -15493,12 +17067,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-24-flag3-2 
@@ -15511,12 +17086,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-24-flag3-3 
@@ -15529,12 +17105,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-24-flag3-4 
@@ -15547,12 +17124,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-25-flag0-1 
@@ -15562,14 +17140,19 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
+   (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-25-flag1-1 
@@ -15580,14 +17163,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-25-flag1-2 
@@ -15598,13 +17184,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
+   (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-25-flag1-3 
@@ -15615,14 +17205,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-25-flag1-4 
@@ -15633,14 +17226,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-25-flag2-1 
@@ -15652,13 +17248,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-25-flag2-2 
@@ -15670,13 +17268,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-25-flag2-3 
@@ -15688,13 +17288,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-25-flag2-4 
@@ -15706,13 +17308,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-25-flag2-5 
@@ -15724,13 +17328,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-25-flag2-6 
@@ -15742,13 +17348,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-25-flag3-1 
@@ -15761,12 +17369,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-25-flag3-2 
@@ -15779,12 +17388,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-25-flag3-3 
@@ -15797,12 +17407,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-25-flag3-4 
@@ -15815,12 +17426,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-26-flag0-1 
@@ -15830,15 +17442,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-26-flag1-1 
@@ -15849,14 +17465,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-26-flag1-2 
@@ -15867,14 +17486,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-26-flag1-3 
@@ -15885,14 +17507,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-26-flag1-4 
@@ -15903,14 +17528,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-26-flag2-1 
@@ -15922,13 +17550,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-26-flag2-2 
@@ -15940,13 +17570,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-26-flag2-3 
@@ -15958,13 +17590,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-26-flag2-4 
@@ -15976,13 +17610,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-26-flag2-5 
@@ -15994,13 +17630,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-26-flag2-6 
@@ -16012,13 +17650,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-26-flag3-1 
@@ -16031,12 +17671,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-26-flag3-2 
@@ -16049,12 +17690,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-26-flag3-3 
@@ -16067,12 +17709,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-26-flag3-4 
@@ -16085,12 +17728,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-27-flag0-1 
@@ -16100,15 +17744,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-27-flag1-1 
@@ -16119,14 +17767,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-27-flag1-2 
@@ -16137,14 +17788,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-27-flag1-3 
@@ -16155,14 +17809,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-27-flag1-4 
@@ -16173,14 +17830,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-27-flag2-1 
@@ -16192,13 +17852,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-27-flag2-2 
@@ -16210,13 +17872,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-27-flag2-3 
@@ -16228,13 +17892,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-27-flag2-4 
@@ -16246,13 +17912,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-27-flag2-5 
@@ -16264,13 +17932,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-27-flag2-6 
@@ -16282,13 +17952,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-27-flag3-1 
@@ -16301,12 +17973,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-27-flag3-2 
@@ -16319,12 +17992,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-27-flag3-3 
@@ -16337,12 +18011,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-27-flag3-4 
@@ -16355,12 +18030,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-28-flag0-1 
@@ -16370,15 +18046,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-28-flag1-1 
@@ -16389,14 +18069,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-28-flag1-2 
@@ -16407,14 +18090,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-28-flag1-3 
@@ -16425,14 +18111,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-28-flag1-4 
@@ -16443,14 +18132,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-28-flag2-1 
@@ -16462,13 +18154,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-28-flag2-2 
@@ -16480,13 +18174,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-28-flag2-3 
@@ -16498,13 +18194,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-28-flag2-4 
@@ -16516,13 +18214,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-28-flag2-5 
@@ -16534,13 +18234,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-28-flag2-6 
@@ -16552,13 +18254,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-28-flag3-1 
@@ -16571,12 +18275,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-28-flag3-2 
@@ -16589,12 +18294,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-28-flag3-3 
@@ -16607,12 +18313,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-28-flag3-4 
@@ -16625,12 +18332,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-29-flag0-1 
@@ -16640,15 +18348,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-29-flag1-1 
@@ -16659,14 +18371,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-29-flag1-2 
@@ -16677,14 +18392,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-29-flag1-3 
@@ -16695,14 +18413,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-29-flag1-4 
@@ -16713,14 +18434,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-29-flag2-1 
@@ -16732,13 +18456,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-29-flag2-2 
@@ -16750,13 +18476,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-29-flag2-3 
@@ -16768,13 +18496,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-29-flag2-4 
@@ -16786,13 +18516,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-29-flag2-5 
@@ -16804,13 +18536,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-29-flag2-6 
@@ -16822,13 +18556,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-29-flag3-1 
@@ -16841,12 +18577,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-29-flag3-2 
@@ -16859,12 +18596,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-29-flag3-3 
@@ -16877,12 +18615,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-29-flag3-4 
@@ -16895,12 +18634,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-30-flag0-1 
@@ -16910,15 +18650,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-30-flag1-1 
@@ -16929,14 +18673,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-30-flag1-2 
@@ -16947,14 +18694,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-30-flag1-3 
@@ -16965,14 +18715,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-30-flag1-4 
@@ -16983,14 +18736,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-30-flag2-1 
@@ -17002,13 +18758,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-30-flag2-2 
@@ -17020,13 +18778,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-30-flag2-3 
@@ -17038,13 +18798,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-30-flag2-4 
@@ -17056,13 +18818,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-30-flag2-5 
@@ -17074,13 +18838,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-30-flag2-6 
@@ -17092,13 +18858,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-30-flag3-1 
@@ -17111,12 +18879,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-30-flag3-2 
@@ -17129,12 +18898,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-30-flag3-3 
@@ -17147,12 +18917,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-30-flag3-4 
@@ -17165,12 +18936,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-31-flag0-1 
@@ -17180,14 +18952,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
+   (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-31-flag1-1 
@@ -17198,14 +18975,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-31-flag1-2 
@@ -17216,13 +18996,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
+   (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-31-flag1-3 
@@ -17233,14 +19017,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-31-flag1-4 
@@ -17251,14 +19038,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-31-flag2-1 
@@ -17270,13 +19060,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-31-flag2-2 
@@ -17288,13 +19080,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-31-flag2-3 
@@ -17306,13 +19100,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-31-flag2-4 
@@ -17324,13 +19120,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-31-flag2-5 
@@ -17342,13 +19140,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-31-flag2-6 
@@ -17360,13 +19160,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-31-flag3-1 
@@ -17379,12 +19181,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-31-flag3-2 
@@ -17397,12 +19200,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-31-flag3-3 
@@ -17415,12 +19219,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-31-flag3-4 
@@ -17433,12 +19238,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-32-flag0-1 
@@ -17448,14 +19254,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
+   (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag1-1 
@@ -17466,13 +19277,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
+   (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag1-2 
@@ -17483,14 +19298,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag1-3 
@@ -17501,14 +19319,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag1-4 
@@ -17519,14 +19340,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag2-1 
@@ -17538,13 +19362,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag2-2 
@@ -17556,13 +19382,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag2-3 
@@ -17574,13 +19402,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag2-4 
@@ -17592,13 +19422,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag2-5 
@@ -17610,13 +19442,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag2-6 
@@ -17628,13 +19462,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag3-1 
@@ -17647,12 +19483,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag3-2 
@@ -17665,12 +19502,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag3-3 
@@ -17683,12 +19521,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-32-flag3-4 
@@ -17701,12 +19540,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-33-flag0-1 
@@ -17716,15 +19556,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-33-flag1-1 
@@ -17735,14 +19579,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-33-flag1-2 
@@ -17753,14 +19600,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-33-flag1-3 
@@ -17771,14 +19621,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-33-flag1-4 
@@ -17789,14 +19642,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-33-flag2-1 
@@ -17808,13 +19664,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-33-flag2-2 
@@ -17826,13 +19684,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-33-flag2-3 
@@ -17844,13 +19704,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-33-flag2-4 
@@ -17862,13 +19724,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-33-flag2-5 
@@ -17880,13 +19744,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-33-flag2-6 
@@ -17898,13 +19764,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-33-flag3-1 
@@ -17917,12 +19785,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-33-flag3-2 
@@ -17935,12 +19804,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-33-flag3-3 
@@ -17953,12 +19823,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-33-flag3-4 
@@ -17971,12 +19842,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-34-flag0-1 
@@ -17986,14 +19858,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
+   (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-34-flag1-1 
@@ -18004,14 +19881,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-34-flag1-2 
@@ -18022,13 +19902,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
+   (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-34-flag1-3 
@@ -18039,14 +19923,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-34-flag1-4 
@@ -18057,14 +19944,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-34-flag2-1 
@@ -18076,13 +19966,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-34-flag2-2 
@@ -18094,13 +19986,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-34-flag2-3 
@@ -18112,13 +20006,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-34-flag2-4 
@@ -18130,13 +20026,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-34-flag2-5 
@@ -18148,13 +20046,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-34-flag2-6 
@@ -18166,13 +20066,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-34-flag3-1 
@@ -18185,12 +20087,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-34-flag3-2 
@@ -18203,12 +20106,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-34-flag3-3 
@@ -18221,12 +20125,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-34-flag3-4 
@@ -18239,12 +20144,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-35-flag0-1 
@@ -18254,14 +20160,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
+   (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-35-flag1-1 
@@ -18272,14 +20183,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-35-flag1-2 
@@ -18290,13 +20204,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
+   (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-35-flag1-3 
@@ -18307,14 +20225,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-35-flag1-4 
@@ -18325,14 +20246,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-35-flag2-1 
@@ -18344,13 +20268,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-35-flag2-2 
@@ -18362,13 +20288,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-35-flag2-3 
@@ -18380,13 +20308,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-35-flag2-4 
@@ -18398,13 +20328,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-35-flag2-5 
@@ -18416,13 +20348,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-35-flag2-6 
@@ -18434,13 +20368,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z2 ?val1) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-35-flag3-1 
@@ -18453,12 +20389,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-35-flag3-2 
@@ -18471,12 +20408,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-35-flag3-3 
@@ -18489,12 +20427,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-35-flag3-4 
@@ -18507,12 +20446,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z2 ?val1) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (+ ?y 1))) 
+   (assert (flag ?z1 ?z2)) 
    ) 
 
 (defrule rule-1-val4-36-flag0-1 
@@ -18522,14 +20462,19 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
+   (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-36-flag1-1 
@@ -18540,13 +20485,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
+   (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-36-flag1-2 
@@ -18557,14 +20506,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-36-flag1-3 
@@ -18575,14 +20527,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-36-flag1-4 
@@ -18593,14 +20548,17 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-36-flag2-1 
@@ -18612,13 +20570,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-36-flag2-2 
@@ -18630,13 +20590,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-36-flag2-3 
@@ -18648,13 +20610,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-36-flag2-4 
@@ -18666,13 +20630,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-36-flag2-5 
@@ -18684,13 +20650,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-36-flag2-6 
@@ -18702,13 +20670,15 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-36-flag3-1 
@@ -18721,12 +20691,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-36-flag3-2 
@@ -18739,12 +20710,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-36-flag3-3 
@@ -18757,12 +20729,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-36-flag3-4 
@@ -18775,12 +20748,13 @@
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-37-flag0-1 
@@ -18790,15 +20764,19 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-37-flag1-1 
@@ -18809,14 +20787,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-37-flag1-2 
@@ -18827,14 +20808,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-37-flag1-3 
@@ -18845,14 +20829,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-37-flag1-4 
@@ -18863,14 +20850,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-37-flag2-1 
@@ -18882,13 +20872,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-37-flag2-2 
@@ -18900,13 +20892,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-37-flag2-3 
@@ -18918,13 +20912,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-37-flag2-4 
@@ -18936,13 +20932,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-37-flag2-5 
@@ -18954,13 +20952,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-37-flag2-6 
@@ -18972,13 +20972,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-37-flag3-1 
@@ -18991,12 +20993,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-37-flag3-2 
@@ -19009,12 +21012,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-37-flag3-3 
@@ -19027,12 +21031,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-37-flag3-4 
@@ -19045,12 +21050,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-38-flag0-1 
@@ -19060,15 +21066,19 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-38-flag1-1 
@@ -19079,14 +21089,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-38-flag1-2 
@@ -19097,14 +21110,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-38-flag1-3 
@@ -19115,14 +21131,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-38-flag1-4 
@@ -19133,14 +21152,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-38-flag2-1 
@@ -19152,13 +21174,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-38-flag2-2 
@@ -19170,13 +21194,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-38-flag2-3 
@@ -19188,13 +21214,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-38-flag2-4 
@@ -19206,13 +21234,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-38-flag2-5 
@@ -19224,13 +21254,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-38-flag2-6 
@@ -19242,13 +21274,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-38-flag3-1 
@@ -19261,12 +21295,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-38-flag3-2 
@@ -19279,12 +21314,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-38-flag3-3 
@@ -19297,12 +21333,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-38-flag3-4 
@@ -19315,12 +21352,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-39-flag0-1 
@@ -19330,15 +21368,19 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-39-flag1-1 
@@ -19349,14 +21391,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-39-flag1-2 
@@ -19367,14 +21412,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-39-flag1-3 
@@ -19385,14 +21433,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-39-flag1-4 
@@ -19403,14 +21454,17 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-39-flag2-1 
@@ -19422,13 +21476,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-39-flag2-2 
@@ -19440,13 +21496,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-39-flag2-3 
@@ -19458,13 +21516,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-39-flag2-4 
@@ -19476,13 +21536,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-39-flag2-5 
@@ -19494,13 +21556,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-39-flag2-6 
@@ -19512,13 +21576,15 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-39-flag3-1 
@@ -19531,12 +21597,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-39-flag3-2 
@@ -19549,12 +21616,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-39-flag3-3 
@@ -19567,12 +21635,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-39-flag3-4 
@@ -19585,12 +21654,13 @@
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-40-flag0-1 
@@ -19600,15 +21670,19 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-40-flag1-1 
@@ -19619,14 +21693,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-40-flag1-2 
@@ -19637,14 +21714,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-40-flag1-3 
@@ -19655,14 +21735,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-40-flag1-4 
@@ -19673,14 +21756,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-40-flag2-1 
@@ -19692,13 +21778,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-40-flag2-2 
@@ -19710,13 +21798,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-40-flag2-3 
@@ -19728,13 +21818,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-40-flag2-4 
@@ -19746,13 +21838,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-40-flag2-5 
@@ -19764,13 +21858,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-40-flag2-6 
@@ -19782,13 +21878,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-40-flag3-1 
@@ -19801,12 +21899,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-40-flag3-2 
@@ -19819,12 +21918,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-40-flag3-3 
@@ -19837,12 +21937,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-40-flag3-4 
@@ -19855,12 +21956,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-41-flag0-1 
@@ -19870,15 +21972,19 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-41-flag1-1 
@@ -19889,14 +21995,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-41-flag1-2 
@@ -19907,14 +22016,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-41-flag1-3 
@@ -19925,14 +22037,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-41-flag1-4 
@@ -19943,14 +22058,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-41-flag2-1 
@@ -19962,13 +22080,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-41-flag2-2 
@@ -19980,13 +22100,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-41-flag2-3 
@@ -19998,13 +22120,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-41-flag2-4 
@@ -20016,13 +22140,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-41-flag2-5 
@@ -20034,13 +22160,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-41-flag2-6 
@@ -20052,13 +22180,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-41-flag3-1 
@@ -20071,12 +22201,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-41-flag3-2 
@@ -20089,12 +22220,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-41-flag3-3 
@@ -20107,12 +22239,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-41-flag3-4 
@@ -20125,12 +22258,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-42-flag0-1 
@@ -20140,15 +22274,19 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-42-flag1-1 
@@ -20159,14 +22297,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-42-flag1-2 
@@ -20177,14 +22318,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-42-flag1-3 
@@ -20195,14 +22339,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-42-flag1-4 
@@ -20213,14 +22360,17 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-42-flag2-1 
@@ -20232,13 +22382,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-42-flag2-2 
@@ -20250,13 +22402,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-42-flag2-3 
@@ -20268,13 +22422,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-42-flag2-4 
@@ -20286,13 +22442,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-42-flag2-5 
@@ -20304,13 +22462,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-42-flag2-6 
@@ -20322,13 +22482,15 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-42-flag3-1 
@@ -20341,12 +22503,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-42-flag3-2 
@@ -20359,12 +22522,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-42-flag3-3 
@@ -20377,12 +22541,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-42-flag3-4 
@@ -20395,12 +22560,13 @@
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-43-flag0-1 
@@ -20410,15 +22576,19 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-43-flag1-1 
@@ -20429,14 +22599,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-43-flag1-2 
@@ -20447,14 +22620,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-43-flag1-3 
@@ -20465,14 +22641,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-43-flag1-4 
@@ -20483,14 +22662,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-43-flag2-1 
@@ -20502,13 +22684,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-43-flag2-2 
@@ -20520,13 +22704,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-43-flag2-3 
@@ -20538,13 +22724,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-43-flag2-4 
@@ -20556,13 +22744,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-43-flag2-5 
@@ -20574,13 +22764,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-43-flag2-6 
@@ -20592,13 +22784,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-43-flag3-1 
@@ -20611,12 +22805,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-43-flag3-2 
@@ -20629,12 +22824,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-43-flag3-3 
@@ -20647,12 +22843,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-43-flag3-4 
@@ -20665,12 +22862,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-44-flag0-1 
@@ -20680,15 +22878,19 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-44-flag1-1 
@@ -20699,14 +22901,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-44-flag1-2 
@@ -20717,14 +22922,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-44-flag1-3 
@@ -20735,14 +22943,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-44-flag1-4 
@@ -20753,14 +22964,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-44-flag2-1 
@@ -20772,13 +22986,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-44-flag2-2 
@@ -20790,13 +23006,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-44-flag2-3 
@@ -20808,13 +23026,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-44-flag2-4 
@@ -20826,13 +23046,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-44-flag2-5 
@@ -20844,13 +23066,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-44-flag2-6 
@@ -20862,13 +23086,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-44-flag3-1 
@@ -20881,12 +23107,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-44-flag3-2 
@@ -20899,12 +23126,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-44-flag3-3 
@@ -20917,12 +23145,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-44-flag3-4 
@@ -20935,12 +23164,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-45-flag0-1 
@@ -20950,15 +23180,19 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-45-flag1-1 
@@ -20969,14 +23203,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-45-flag1-2 
@@ -20987,14 +23224,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-45-flag1-3 
@@ -21005,14 +23245,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-45-flag1-4 
@@ -21023,14 +23266,17 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-45-flag2-1 
@@ -21042,13 +23288,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-45-flag2-2 
@@ -21060,13 +23308,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-45-flag2-3 
@@ -21078,13 +23328,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-45-flag2-4 
@@ -21096,13 +23348,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-45-flag2-5 
@@ -21114,13 +23368,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-45-flag2-6 
@@ -21132,13 +23388,15 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-45-flag3-1 
@@ -21151,12 +23409,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-45-flag3-2 
@@ -21169,12 +23428,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-45-flag3-3 
@@ -21187,12 +23447,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-45-flag3-4 
@@ -21205,12 +23466,13 @@
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-46-flag0-1 
@@ -21220,15 +23482,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-46-flag1-1 
@@ -21239,14 +23505,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-46-flag1-2 
@@ -21257,14 +23526,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-46-flag1-3 
@@ -21275,14 +23547,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-46-flag1-4 
@@ -21293,14 +23568,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-46-flag2-1 
@@ -21312,13 +23590,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-46-flag2-2 
@@ -21330,13 +23610,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-46-flag2-3 
@@ -21348,13 +23630,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-46-flag2-4 
@@ -21366,13 +23650,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-46-flag2-5 
@@ -21384,13 +23670,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-46-flag2-6 
@@ -21402,13 +23690,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-46-flag3-1 
@@ -21421,12 +23711,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-46-flag3-2 
@@ -21439,12 +23730,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-46-flag3-3 
@@ -21457,12 +23749,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-46-flag3-4 
@@ -21475,12 +23768,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-47-flag0-1 
@@ -21490,15 +23784,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-47-flag1-1 
@@ -21509,14 +23807,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-47-flag1-2 
@@ -21527,14 +23828,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-47-flag1-3 
@@ -21545,14 +23849,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-47-flag1-4 
@@ -21563,14 +23870,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-47-flag2-1 
@@ -21582,13 +23892,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-47-flag2-2 
@@ -21600,13 +23912,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-47-flag2-3 
@@ -21618,13 +23932,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-47-flag2-4 
@@ -21636,13 +23952,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-47-flag2-5 
@@ -21654,13 +23972,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-47-flag2-6 
@@ -21672,13 +23992,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-47-flag3-1 
@@ -21691,12 +24013,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-47-flag3-2 
@@ -21709,12 +24032,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-47-flag3-3 
@@ -21727,12 +24051,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-47-flag3-4 
@@ -21745,12 +24070,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-48-flag0-1 
@@ -21760,15 +24086,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-48-flag1-1 
@@ -21779,14 +24109,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-48-flag1-2 
@@ -21797,14 +24130,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-48-flag1-3 
@@ -21815,14 +24151,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-48-flag1-4 
@@ -21833,14 +24172,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-48-flag2-1 
@@ -21852,13 +24194,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-48-flag2-2 
@@ -21870,13 +24214,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-48-flag2-3 
@@ -21888,13 +24234,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-48-flag2-4 
@@ -21906,13 +24254,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-48-flag2-5 
@@ -21924,13 +24274,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-48-flag2-6 
@@ -21942,13 +24294,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-48-flag3-1 
@@ -21961,12 +24315,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-48-flag3-2 
@@ -21979,12 +24334,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-48-flag3-3 
@@ -21997,12 +24353,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-48-flag3-4 
@@ -22015,12 +24372,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-49-flag0-1 
@@ -22030,15 +24388,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-49-flag1-1 
@@ -22049,14 +24411,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-49-flag1-2 
@@ -22067,14 +24432,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-49-flag1-3 
@@ -22085,14 +24453,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-49-flag1-4 
@@ -22103,14 +24474,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-49-flag2-1 
@@ -22122,13 +24496,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-49-flag2-2 
@@ -22140,13 +24516,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-49-flag2-3 
@@ -22158,13 +24536,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-49-flag2-4 
@@ -22176,13 +24556,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-49-flag2-5 
@@ -22194,13 +24576,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-49-flag2-6 
@@ -22212,13 +24596,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-49-flag3-1 
@@ -22231,12 +24617,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-49-flag3-2 
@@ -22249,12 +24636,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-49-flag3-3 
@@ -22267,12 +24655,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-49-flag3-4 
@@ -22285,12 +24674,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-50-flag0-1 
@@ -22300,15 +24690,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-50-flag1-1 
@@ -22319,14 +24713,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-50-flag1-2 
@@ -22337,14 +24734,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-50-flag1-3 
@@ -22355,14 +24755,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-50-flag1-4 
@@ -22373,14 +24776,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-50-flag2-1 
@@ -22392,13 +24798,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-50-flag2-2 
@@ -22410,13 +24818,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-50-flag2-3 
@@ -22428,13 +24838,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-50-flag2-4 
@@ -22446,13 +24858,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-50-flag2-5 
@@ -22464,13 +24878,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-50-flag2-6 
@@ -22482,13 +24898,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-50-flag3-1 
@@ -22501,12 +24919,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-50-flag3-2 
@@ -22519,12 +24938,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-50-flag3-3 
@@ -22537,12 +24957,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-50-flag3-4 
@@ -22555,12 +24976,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-51-flag0-1 
@@ -22570,15 +24992,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-51-flag1-1 
@@ -22589,14 +25015,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-51-flag1-2 
@@ -22607,14 +25036,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-51-flag1-3 
@@ -22625,14 +25057,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-51-flag1-4 
@@ -22643,14 +25078,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-51-flag2-1 
@@ -22662,13 +25100,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-51-flag2-2 
@@ -22680,13 +25120,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-51-flag2-3 
@@ -22698,13 +25140,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-51-flag2-4 
@@ -22716,13 +25160,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-51-flag2-5 
@@ -22734,13 +25180,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-51-flag2-6 
@@ -22752,13 +25200,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-51-flag3-1 
@@ -22771,12 +25221,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-51-flag3-2 
@@ -22789,12 +25240,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-51-flag3-3 
@@ -22807,12 +25259,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-51-flag3-4 
@@ -22825,12 +25278,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-52-flag0-1 
@@ -22840,14 +25294,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
+   (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag1-1 
@@ -22858,13 +25317,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
+   (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag1-2 
@@ -22875,14 +25338,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag1-3 
@@ -22893,14 +25359,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag1-4 
@@ -22911,14 +25380,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag2-1 
@@ -22930,13 +25402,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag2-2 
@@ -22948,13 +25422,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag2-3 
@@ -22966,13 +25442,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag2-4 
@@ -22984,13 +25462,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag2-5 
@@ -23002,13 +25482,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag2-6 
@@ -23020,13 +25502,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag3-1 
@@ -23039,12 +25523,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag3-2 
@@ -23057,12 +25542,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag3-3 
@@ -23075,12 +25561,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-52-flag3-4 
@@ -23093,12 +25580,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-53-flag0-1 
@@ -23108,15 +25596,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-53-flag1-1 
@@ -23127,14 +25619,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-53-flag1-2 
@@ -23145,14 +25640,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-53-flag1-3 
@@ -23163,14 +25661,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-53-flag1-4 
@@ -23181,14 +25682,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-53-flag2-1 
@@ -23200,13 +25704,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-53-flag2-2 
@@ -23218,13 +25724,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-53-flag2-3 
@@ -23236,13 +25744,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-53-flag2-4 
@@ -23254,13 +25764,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-53-flag2-5 
@@ -23272,13 +25784,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-53-flag2-6 
@@ -23290,13 +25804,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-53-flag3-1 
@@ -23309,12 +25825,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-53-flag3-2 
@@ -23327,12 +25844,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-53-flag3-3 
@@ -23345,12 +25863,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-53-flag3-4 
@@ -23363,12 +25882,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-54-flag0-1 
@@ -23378,15 +25898,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-54-flag1-1 
@@ -23397,14 +25921,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-54-flag1-2 
@@ -23415,14 +25942,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-54-flag1-3 
@@ -23433,14 +25963,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-54-flag1-4 
@@ -23451,14 +25984,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-54-flag2-1 
@@ -23470,13 +26006,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-54-flag2-2 
@@ -23488,13 +26026,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-54-flag2-3 
@@ -23506,13 +26046,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-54-flag2-4 
@@ -23524,13 +26066,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-54-flag2-5 
@@ -23542,13 +26086,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-54-flag2-6 
@@ -23560,13 +26106,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-54-flag3-1 
@@ -23579,12 +26127,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-54-flag3-2 
@@ -23597,12 +26146,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-54-flag3-3 
@@ -23615,12 +26165,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-54-flag3-4 
@@ -23633,12 +26184,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-55-flag0-1 
@@ -23648,15 +26200,19 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-55-flag1-1 
@@ -23667,14 +26223,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-55-flag1-2 
@@ -23685,14 +26244,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-55-flag1-3 
@@ -23703,14 +26265,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-55-flag1-4 
@@ -23721,14 +26286,17 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-55-flag2-1 
@@ -23740,13 +26308,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-55-flag2-2 
@@ -23758,13 +26328,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-55-flag2-3 
@@ -23776,13 +26348,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-55-flag2-4 
@@ -23794,13 +26368,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-55-flag2-5 
@@ -23812,13 +26388,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-55-flag2-6 
@@ -23830,13 +26408,15 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z2 ?val2) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-55-flag3-1 
@@ -23849,12 +26429,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-55-flag3-2 
@@ -23867,12 +26448,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-55-flag3-3 
@@ -23885,12 +26467,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-55-flag3-4 
@@ -23903,12 +26486,13 @@
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z2 ?val2) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (+ ?y 1))) 
+   (assert (flag ?x ?z2)) 
    ) 
 
 (defrule rule-1-val4-56-flag0-1 
@@ -23918,14 +26502,19 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
+   (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-56-flag1-1 
@@ -23936,14 +26525,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-56-flag1-2 
@@ -23954,14 +26546,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-56-flag1-3 
@@ -23972,14 +26567,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-56-flag1-4 
@@ -23990,13 +26588,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
+   (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-56-flag2-1 
@@ -24008,13 +26610,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-56-flag2-2 
@@ -24026,13 +26630,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-56-flag2-3 
@@ -24044,13 +26650,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-56-flag2-4 
@@ -24062,13 +26670,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-56-flag2-5 
@@ -24080,13 +26690,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-56-flag2-6 
@@ -24098,13 +26710,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-56-flag3-1 
@@ -24117,12 +26731,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-56-flag3-2 
@@ -24135,12 +26750,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-56-flag3-3 
@@ -24153,12 +26769,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-56-flag3-4 
@@ -24171,12 +26788,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z1 ?z4 ?val7) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-57-flag0-1 
@@ -24186,14 +26804,19 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
+   (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-57-flag1-1 
@@ -24204,14 +26827,17 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-57-flag1-2 
@@ -24222,14 +26848,17 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-57-flag1-3 
@@ -24240,14 +26869,17 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-57-flag1-4 
@@ -24258,13 +26890,17 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
+   (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-57-flag2-1 
@@ -24276,13 +26912,15 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-57-flag2-2 
@@ -24294,13 +26932,15 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-57-flag2-3 
@@ -24312,13 +26952,15 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-57-flag2-4 
@@ -24330,13 +26972,15 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-57-flag2-5 
@@ -24348,13 +26992,15 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-57-flag2-6 
@@ -24366,13 +27012,15 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-57-flag3-1 
@@ -24385,12 +27033,13 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-57-flag3-2 
@@ -24403,12 +27052,13 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-57-flag3-3 
@@ -24421,12 +27071,13 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-57-flag3-4 
@@ -24439,12 +27090,13 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-58-flag0-1 
@@ -24454,14 +27106,19 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
+   (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-58-flag1-1 
@@ -24472,14 +27129,17 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-58-flag1-2 
@@ -24490,14 +27150,17 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-58-flag1-3 
@@ -24508,14 +27171,17 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-58-flag1-4 
@@ -24526,13 +27192,17 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
+   (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-58-flag2-1 
@@ -24544,13 +27214,15 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-58-flag2-2 
@@ -24562,13 +27234,15 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-58-flag2-3 
@@ -24580,13 +27254,15 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-58-flag2-4 
@@ -24598,13 +27274,15 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-58-flag2-5 
@@ -24616,13 +27294,15 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-58-flag2-6 
@@ -24634,13 +27314,15 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-58-flag3-1 
@@ -24653,12 +27335,13 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-58-flag3-2 
@@ -24671,12 +27354,13 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-58-flag3-3 
@@ -24689,12 +27373,13 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-58-flag3-4 
@@ -24707,12 +27392,13 @@
    (user ?x ?z2 ?val2) 
    (user ?x ?z4 ?val6) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-59-flag0-1 
@@ -24722,15 +27408,19 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-59-flag1-1 
@@ -24741,14 +27431,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-59-flag1-2 
@@ -24759,14 +27452,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-59-flag1-3 
@@ -24777,14 +27473,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-59-flag1-4 
@@ -24795,14 +27494,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-59-flag2-1 
@@ -24814,13 +27516,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-59-flag2-2 
@@ -24832,13 +27536,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-59-flag2-3 
@@ -24850,13 +27556,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-59-flag2-4 
@@ -24868,13 +27576,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-59-flag2-5 
@@ -24886,13 +27596,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-59-flag2-6 
@@ -24904,13 +27616,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-59-flag3-1 
@@ -24923,12 +27637,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-59-flag3-2 
@@ -24941,12 +27656,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-59-flag3-3 
@@ -24959,12 +27675,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-59-flag3-4 
@@ -24977,12 +27694,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-60-flag0-1 
@@ -24992,15 +27710,19 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-60-flag1-1 
@@ -25011,14 +27733,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-60-flag1-2 
@@ -25029,14 +27754,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-60-flag1-3 
@@ -25047,14 +27775,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-60-flag1-4 
@@ -25065,14 +27796,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-60-flag2-1 
@@ -25084,13 +27818,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-60-flag2-2 
@@ -25102,13 +27838,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-60-flag2-3 
@@ -25120,13 +27858,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-60-flag2-4 
@@ -25138,13 +27878,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-60-flag2-5 
@@ -25156,13 +27898,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-60-flag2-6 
@@ -25174,13 +27918,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-60-flag3-1 
@@ -25193,12 +27939,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-60-flag3-2 
@@ -25211,12 +27958,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-60-flag3-3 
@@ -25229,12 +27977,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-60-flag3-4 
@@ -25247,12 +27996,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-61-flag0-1 
@@ -25262,15 +28012,19 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-61-flag1-1 
@@ -25281,14 +28035,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-61-flag1-2 
@@ -25299,14 +28056,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-61-flag1-3 
@@ -25317,14 +28077,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-61-flag1-4 
@@ -25335,14 +28098,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-61-flag2-1 
@@ -25354,13 +28120,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-61-flag2-2 
@@ -25372,13 +28140,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-61-flag2-3 
@@ -25390,13 +28160,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-61-flag2-4 
@@ -25408,13 +28180,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-61-flag2-5 
@@ -25426,13 +28200,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-61-flag2-6 
@@ -25444,13 +28220,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-61-flag3-1 
@@ -25463,12 +28241,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-61-flag3-2 
@@ -25481,12 +28260,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-61-flag3-3 
@@ -25499,12 +28279,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-61-flag3-4 
@@ -25517,12 +28298,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z4 ?val5) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-62-flag0-1 
@@ -25532,14 +28314,19 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
+   (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag1-1 
@@ -25550,13 +28337,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
+   (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag1-2 
@@ -25567,14 +28358,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag1-3 
@@ -25585,14 +28379,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag1-4 
@@ -25603,14 +28400,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag2-1 
@@ -25622,13 +28422,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag2-2 
@@ -25640,13 +28442,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag2-3 
@@ -25658,13 +28462,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag2-4 
@@ -25676,13 +28482,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag2-5 
@@ -25694,13 +28502,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag2-6 
@@ -25712,13 +28522,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag3-1 
@@ -25731,12 +28543,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag3-2 
@@ -25749,12 +28562,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag3-3 
@@ -25767,12 +28581,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-62-flag3-4 
@@ -25785,12 +28600,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-63-flag0-1 
@@ -25800,15 +28616,19 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-63-flag1-1 
@@ -25819,14 +28639,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-63-flag1-2 
@@ -25837,14 +28660,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-63-flag1-3 
@@ -25855,14 +28681,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-63-flag1-4 
@@ -25873,14 +28702,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-63-flag2-1 
@@ -25892,13 +28724,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-63-flag2-2 
@@ -25910,13 +28744,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-63-flag2-3 
@@ -25928,13 +28764,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-63-flag2-4 
@@ -25946,13 +28784,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-63-flag2-5 
@@ -25964,13 +28804,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-63-flag2-6 
@@ -25982,13 +28824,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-63-flag3-1 
@@ -26001,12 +28845,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-63-flag3-2 
@@ -26019,12 +28864,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-63-flag3-3 
@@ -26037,12 +28883,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-63-flag3-4 
@@ -26055,12 +28902,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-64-flag0-1 
@@ -26070,15 +28918,19 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-64-flag1-1 
@@ -26089,14 +28941,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-64-flag1-2 
@@ -26107,14 +28962,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-64-flag1-3 
@@ -26125,14 +28983,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-64-flag1-4 
@@ -26143,14 +29004,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-64-flag2-1 
@@ -26162,13 +29026,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-64-flag2-2 
@@ -26180,13 +29046,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-64-flag2-3 
@@ -26198,13 +29066,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-64-flag2-4 
@@ -26216,13 +29086,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-64-flag2-5 
@@ -26234,13 +29106,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-64-flag2-6 
@@ -26252,13 +29126,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-64-flag3-1 
@@ -26271,12 +29147,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-64-flag3-2 
@@ -26289,12 +29166,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-64-flag3-3 
@@ -26307,12 +29185,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-64-flag3-4 
@@ -26325,12 +29204,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-65-flag0-1 
@@ -26340,15 +29220,19 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-65-flag1-1 
@@ -26359,14 +29243,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-65-flag1-2 
@@ -26377,14 +29264,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-65-flag1-3 
@@ -26395,14 +29285,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-65-flag1-4 
@@ -26413,14 +29306,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-65-flag2-1 
@@ -26432,13 +29328,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-65-flag2-2 
@@ -26450,13 +29348,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-65-flag2-3 
@@ -26468,13 +29368,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-65-flag2-4 
@@ -26486,13 +29388,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-65-flag2-5 
@@ -26504,13 +29408,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-65-flag2-6 
@@ -26522,13 +29428,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?z2 ?val3) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-65-flag3-1 
@@ -26541,12 +29449,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-65-flag3-2 
@@ -26559,12 +29468,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-65-flag3-3 
@@ -26577,12 +29487,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-65-flag3-4 
@@ -26595,12 +29506,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?y ?val4) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?z2 ?val3) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (+ ?y 1))) 
+   (assert (flag ?z3 ?z2)) 
    ) 
 
 (defrule rule-1-val4-66-flag0-1 
@@ -26610,14 +29522,19 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
+   (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag1-1 
@@ -26628,13 +29545,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
+   (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag1-2 
@@ -26645,14 +29566,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag1-3 
@@ -26663,14 +29587,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag1-4 
@@ -26681,14 +29608,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag2-1 
@@ -26700,13 +29630,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag2-2 
@@ -26718,13 +29650,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag2-3 
@@ -26736,13 +29670,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag2-4 
@@ -26754,13 +29690,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag2-5 
@@ -26772,13 +29710,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag2-6 
@@ -26790,13 +29730,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag3-1 
@@ -26809,12 +29751,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag3-2 
@@ -26827,12 +29770,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag3-3 
@@ -26845,12 +29789,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-66-flag3-4 
@@ -26863,12 +29808,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?y ?val8) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-67-flag0-1 
@@ -26878,15 +29824,19 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-67-flag1-1 
@@ -26897,14 +29847,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-67-flag1-2 
@@ -26915,14 +29868,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-67-flag1-3 
@@ -26933,14 +29889,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-67-flag1-4 
@@ -26951,14 +29910,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-67-flag2-1 
@@ -26970,13 +29932,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-67-flag2-2 
@@ -26988,13 +29952,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-67-flag2-3 
@@ -27006,13 +29972,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-67-flag2-4 
@@ -27024,13 +29992,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-67-flag2-5 
@@ -27042,13 +30012,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-67-flag2-6 
@@ -27060,13 +30032,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-67-flag3-1 
@@ -27079,12 +30053,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-67-flag3-2 
@@ -27097,12 +30072,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-67-flag3-3 
@@ -27115,12 +30091,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-67-flag3-4 
@@ -27133,12 +30110,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z1 ?z4 ?val7) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-68-flag0-1 
@@ -27148,15 +30126,19 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-68-flag1-1 
@@ -27167,14 +30149,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-68-flag1-2 
@@ -27185,14 +30170,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-68-flag1-3 
@@ -27203,14 +30191,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-68-flag1-4 
@@ -27221,14 +30212,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-68-flag2-1 
@@ -27240,13 +30234,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-68-flag2-2 
@@ -27258,13 +30254,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-68-flag2-3 
@@ -27276,13 +30274,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-68-flag2-4 
@@ -27294,13 +30294,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-68-flag2-5 
@@ -27312,13 +30314,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-68-flag2-6 
@@ -27330,13 +30334,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-68-flag3-1 
@@ -27349,12 +30355,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-68-flag3-2 
@@ -27367,12 +30374,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-68-flag3-3 
@@ -27385,12 +30393,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 (defrule rule-1-val4-68-flag3-4 
@@ -27403,12 +30412,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?x ?z4 ?val6) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-69-flag0-1 
@@ -27418,15 +30428,19 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-69-flag1-1 
@@ -27437,14 +30451,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-69-flag1-2 
@@ -27455,14 +30472,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-69-flag1-3 
@@ -27473,14 +30493,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-69-flag1-4 
@@ -27491,14 +30514,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-69-flag2-1 
@@ -27510,13 +30536,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-69-flag2-2 
@@ -27528,13 +30556,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-69-flag2-3 
@@ -27546,13 +30576,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-69-flag2-4 
@@ -27564,13 +30596,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-69-flag2-5 
@@ -27582,13 +30616,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-69-flag2-6 
@@ -27600,13 +30636,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?y)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-69-flag3-1 
@@ -27619,12 +30657,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-69-flag3-2 
@@ -27637,12 +30676,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-69-flag3-3 
@@ -27655,12 +30695,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-69-flag3-4 
@@ -27673,12 +30714,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?z4 ?val5) 
+   (unknown ?z3 ?y ?val4) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) ?y)) 
+   (assert (flag ?z3 ?y)) 
    ) 
 
 (defrule rule-1-val4-70-flag0-1 
@@ -27688,14 +30730,19 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
+   (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-70-flag1-1 
@@ -27706,14 +30753,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-70-flag1-2 
@@ -27724,14 +30774,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-70-flag1-3 
@@ -27742,14 +30795,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-70-flag1-4 
@@ -27760,13 +30816,17 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
+   (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-70-flag2-1 
@@ -27778,13 +30838,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-70-flag2-2 
@@ -27796,13 +30858,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-70-flag2-3 
@@ -27814,13 +30878,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-70-flag2-4 
@@ -27832,13 +30898,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-70-flag2-5 
@@ -27850,13 +30918,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-70-flag2-6 
@@ -27868,13 +30938,15 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-70-flag3-1 
@@ -27887,12 +30959,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?z1 ?y ?val8) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) ?y)) 
+   (assert (flag ?z1 ?y)) 
    ) 
 
 (defrule rule-1-val4-70-flag3-2 
@@ -27905,12 +30978,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?z1 ?z4 ?val7) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (+ ?x 1) (- ?y 1))) 
+   (assert (flag ?z1 ?z4)) 
    ) 
 
 (defrule rule-1-val4-70-flag3-3 
@@ -27923,12 +30997,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?x ?z4 ?val6) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag ?x (- ?y 1))) 
+   (assert (flag ?x ?z4)) 
    ) 
 
 (defrule rule-1-val4-70-flag3-4 
@@ -27941,12 +31016,13 @@
    (user ?x ?z2 ?val2) 
    (user ?z3 ?z2 ?val3) 
    (user ?z3 ?y ?val4) 
+   (unknown ?z3 ?z4 ?val5) 
    (test (= ?z1 (+ ?x 1))) 
    (test (= ?z3 (- ?x 1))) 
    (test (= ?z2 (+ ?y 1))) 
    (test (= ?z4 (- ?y 1))) 
    => 
-   (assert (flag (- ?x 1) (- ?y 1))) 
+   (assert (flag ?z3 ?z4)) 
    ) 
 
 ;lokasi lain
