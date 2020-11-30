@@ -93,8 +93,8 @@ while (len(list(env.activations())) != 0):
 
 # Print flag
 print("===== FINAL BOARD ====")
-for i in range(4):
-    for j in range(4):
+for i in range(b_size):
+    for j in range(b_size):
         if ((j, i) in flags):
             print("- ", end="")
         else:
